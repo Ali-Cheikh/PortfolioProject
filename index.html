@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="css.css">
     <meta name="author" content="Ali Cheikh">
     <meta http-equiv="Content-Language" content="en">
@@ -36,10 +40,9 @@
                     A Web Developer.
                 </h1>
                 <p>
-                    I'm a <b style="color: red;font-family: cursive;">Developer</b>, I love to create beautiful and functional portfolios
-                    formed croce platforms.<i> Design, build, Publish? </i>, ask and i'll make time for it<br>
-                    Studying <ins> Computer science at LFBA</ins> <br>
-                    <b>Gomycode</b> full stack student certified
+                    I'm a <b style="color: red;font-family: cursive;">self made Developer</b>, I love to create thing out of writing code.<i> Design, build, Publish? </i>, depend on me to take a part 👍<br>
+                    <ins> Computer science student at LFBA</ins> <br>certified by: <br>
+                    <img src="https://cdn-lenol.nitrocdn.com/SRixnAwKodpXcofHWXUwQZkgysJqqlRH/assets/images/optimized/rev-8b3fe34/gomycode.com/tn/wp-content/uploads/sites/26/2023/05/Gomycode-TN.svg" alt="Gomycode-TN" width="50%"> 
                 </p>
             </div>
         </div>
@@ -149,7 +152,7 @@
                         <h3>Project Source</h3>
                         <div class="icons">
                             <a href="#" class="icon">
-                                <i class="fab fa-github"></i>
+                                <i class="fab fa-school"></i>
                             </a>
                         </div>
                     </div>
@@ -260,7 +263,7 @@
                                 <input type="text" id="reason" name="reason" required placeholder="Reason of contact and phone number, Thank you">
                             </div>
                             <div class="input-control">
-                                <textarea name="message" cols="15" rows="8" placeholder="Message Here..."></textarea>
+                                <textarea name="message" cols="15" rows="8" placeholder="Message Me Here..."></textarea>
                             </div>
                             <button type="submit" class="btn-text" value="submit" style="background-color: #4CAF50;color: white; padding: 10px 20px; border: none;cursor: pointer;border-radius: 10px;margin: 15px;"><span ><ion-icon name="rocket-outline"></ion-icon>submit </span></button>
                 </form>
@@ -289,18 +292,35 @@
     </div>
     <script src="app.js"></script>
     <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxD2e-CnmNMhkebBJAUqcgOfdx_Q1hB9Xv1ekdgZlLOcoMPGckXb2SiE2VDpfdh1Ip2YA/exec';
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxD2e-CnmNMhkebBJAUqcgOfdx_Q1hB9Xv1ekdgZlLOcoMPGckXb2SiE2VDpfdh1Ip2YA/exec'
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.forms['contact-form'];
 
-    const form = document.forms['contact-form']
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    // Handle response here
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: 'You message is sent ,Thank you for reaching me',
+                        timer: 5000, // Set timer for 5 seconds
+                        timerProgressBar: true,
+                        onClose: () => {
+                            // Submit the form data after the alert is closed
+                            form.submit();
+                        }
+                    });
+                })
+                .then(() => { window.location.reload(); }) // Reload the page after successful submission
+                .catch(error => console.error('Error!', error.message));
+            });
+        });
+    </script>
 
-    form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => alert("Thank you! your form is submitted successfully." ))
-        .then(() => { window.location.reload(); })
-        .catch(error => console.error('Error!', error.message))
-})
-</script>
+<script src="sweetalert2.min.js"></script>
+<script src="sweetalert2/dist/sweetalert2.min.js"></script>
 </body>
 </html>
