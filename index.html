@@ -326,26 +326,57 @@
 
             form.addEventListener('submit', e => {
                 e.preventDefault();
+
+                // Show SweetAlert immediately when the submit button is clicked
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Please wait...',
+                    text: 'Sending your message',
+                    showConfirmButton: false,
+                    allowOutsideClick: false
+                });
+
+                // Make the fetch request to the server
                 fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => {
                     // Handle response here
                     Swal.fire({
                         icon: 'success',
                         title: 'Success!',
-                        text: 'You message is sent ,Thank you for reaching me',
-                        timer: 5000, // Set timer for 5 seconds
+                        text: 'Your message is sent. Thank you for reaching out.',
+                        timer: 2000, // Set timer for 2 seconds
                         timerProgressBar: true,
+                        showConfirmButton: false,
+                        allowOutsideClick: false,
                         onClose: () => {
                             // Submit the form data after the alert is closed
                             form.submit();
-                        }
-                    });
+                        },
+                        confirmButtonColor: '#007bff',
+                        customClass: {
+                        backdrop: 'swal2-backdrop-color',
+                        popup: 'swal2-popup-color'
+                    }
+                    }).then(() => { window.location.reload(); }); // Reload the page after successful submission
                 })
-                .then(() => { window.location.reload(); }) // Reload the page after successful submission
-                .catch(error => console.error('Error!', error.message));
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    // Show an error alert if there's an issue with sending the message
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong! Please try again later.',
+                        confirmButtonColor: '#007bff',
+                        customClass: {
+                        backdrop: 'swal2-backdrop-color',
+                        popup: 'swal2-popup-color'
+                    }
+                    });
+                });
             });
         });
     </script>
+    
 
 <script src="sweetalert2.min.js"></script>
 <script src="sweetalert2/dist/sweetalert2.min.js"></script>
