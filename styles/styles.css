@@ -36,11 +36,17 @@
 }
 
 .swal2-popup-color {
-  background-color: black !important;
+  background-color: rgba(101, 4, 114, 0.527) !important;
+}
+.swal2-popupp-color {
+  background-color: rgba(226, 196, 22, 0.904) !important;
 }
 
 .swal2-backdrop-color {
-  background-color: rgba(0, 0, 0, 0.5) !important;
+  background-color: rgba(101, 4, 114, 0.733) !important;
+}
+.swal2-backdropp-color {
+  background-color: rgba(189, 104, 35, 0.753) !important;
 }
 
 body {
