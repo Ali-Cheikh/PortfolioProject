@@ -1,12 +1,12 @@
 let valueDisplays = document.querySelectorAll(".num");
-let interval = 4000;
+let interval = 5000;
 
 valueDisplays.forEach((valueDisplay) => {
-  let startValue = 0;
+  let startValue = -1;
   let endValue = parseInt(valueDisplay.getAttribute("data-val"));
   let duration = Math.floor(interval / endValue);
   let counter = setInterval(function () {
-    startValue +=0.5;
+    startValue +=1;
     valueDisplay.textContent = startValue;
     if (startValue == endValue) {
       clearInterval(counter);
