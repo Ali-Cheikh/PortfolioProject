@@ -13,3 +13,27 @@ valueDisplays.forEach((valueDisplay) => {
     }
   }, duration);
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  const body = document.querySelector('body');
+  const marquee = document.querySelector('.Marquee');
+
+  marquee.addEventListener('mouseenter', function() {
+    // Disable scrolling on the body
+    body.style.overflow = 'none';
+  });
+
+  marquee.addEventListener('mouseleave', function() {
+    // Re-enable scrolling on the body
+    body.style.overflow = 'auto';
+  });
+
+  // Function to handle horizontal scrolling when the mouse moves inside the .Marquee
+  marquee.addEventListener('mousemove', function(e) {
+    // Calculate the distance moved by the mouse
+    const movementX = e.movementX || e.mozMovementX || e.webkitMovementX || 0;
+    
+    // Adjust the scrollLeft of the .Marquee to scroll horizontally
+    marquee.scrollLeft -= movementX;
+  });
+});

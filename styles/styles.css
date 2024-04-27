@@ -39,11 +39,11 @@
   background-color: rgba(101, 4, 114, 0.527) !important;
 }
 .swal2-popupp-color {
-  background-color: rgba(226, 196, 22, 0.904) !important;
+  background-color: #e2c416e7 !important;
 }
 
 .swal2-backdrop-color {
-  background-color: rgba(101, 4, 114, 0.733) !important;
+  background-color: #650472bb !important;
 }
 .swal2-backdropp-color {
   background-color: rgba(189, 104, 35, 0.753) !important;
@@ -218,6 +218,82 @@ section {
 }
 
 /*About*/
+/* Styling for Good-At container */
+.Good-At {
+  display: flex;
+  justify-content: center;
+  padding: 3.5rem 0;
+  overflow: hidden;
+  color: white;
+  font-weight: 200;
+}
+
+.Marquee {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  max-width: 100; /* Adjust as needed */
+  display: flex; /* Ensure children are displayed in a row */
+}
+
+.Marquee-content {
+  display: flex;
+  flex-direction: row; /* Arrange items horizontally */
+}
+
+.GoodAt-item {
+  width: 250px; /* Set width based on content */
+  border: 2px solid transparent;
+  background: linear-gradient(71deg, #080509, #1a171c, #080509);
+  background-clip: padding-box;
+  border-radius: 10px;
+  padding: 1.5%;
+}
+
+.bg-green-box {
+  background: linear-gradient(71deg, #a00101, #ff7c02e7, #7c0e77);
+}
+
+.bg-white-box {
+  background: linear-gradient(71deg, #7c0e77, #9c3b8f, #da3e3e);
+}
+
+.bg-yellow-box {
+  background: linear-gradient(71deg, #da3e3e, #650472bb, #2a2e35);
+}
+
+.bg-blue-box {
+  background: linear-gradient(71deg, #2a2e35, #101dd8, #a00101);
+}
+.bg-black-box {
+  background: linear-gradient(71deg, #a00101, #7a6a0de7, #7c0e77);
+}
+
+
+.large-text {
+  font-weight: 600;
+  color: white;
+  font-style: normal;
+  font-size: 20px;
+  padding-bottom: 8px;
+}
+
+.small-text {
+  font-weight: 600;
+  color: hsla(0, 0%, 100%, 0.753);
+  font-size: 14px;
+}
+/* Hide scrollbar for WebKit browsers */
+.Marquee::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.Marquee {
+  scrollbar-width: none;
+}
+
+
+
 .about-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
