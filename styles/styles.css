@@ -222,7 +222,7 @@ section {
 .Good-At {
   display: flex;
   justify-content: center;
-  padding: 3.5rem 0;
+  padding: 3.4rem 0;
   overflow: hidden;
   color: white;
   font-weight: 200;
@@ -231,7 +231,6 @@ section {
 .Marquee {
   overflow-x: auto; /* Enable horizontal scrolling */
   overflow-y: hidden; /* Hide vertical scrollbar */
-  max-width: 100; /* Adjust as needed */
   display: flex; /* Ensure children are displayed in a row */
 }
 
@@ -251,18 +250,22 @@ section {
 
 .bg-green-box {
   background: linear-gradient(71deg, #a00101, #ff7c02e7, #7c0e77);
+  margin-right: 20px;
 }
 
 .bg-white-box {
   background: linear-gradient(71deg, #7c0e77, #9c3b8f, #da3e3e);
+  margin-right: 20px;
 }
 
 .bg-yellow-box {
   background: linear-gradient(71deg, #da3e3e, #650472bb, #2a2e35);
+  margin-right: 20px;
 }
 
 .bg-blue-box {
   background: linear-gradient(71deg, #2a2e35, #101dd8, #a00101);
+  margin-right: 20px;
 }
 .bg-black-box {
   background: linear-gradient(71deg, #a00101, #7a6a0de7, #7c0e77);
