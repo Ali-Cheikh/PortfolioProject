@@ -105,3 +105,7 @@ function loop() {
 
 createParticles();
 loop();
+
+function alert(){
+  document.getElementById("overlay").style.display = "block";
+}
