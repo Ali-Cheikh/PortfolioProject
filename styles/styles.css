@@ -57,6 +57,19 @@ body {
   font-size: 1.1rem;
   color: var(--color-white);
   transition: all 0.4s ease-in-out;
+  
+}
+.timeline-blog{
+    color:var(--color-primary) ;
+    font-family: cursive;
+}
+
+.timeline-blog {
+  color:black ;
+  font-family: cursive;
+  .content-blog{
+    background-color: #94bb3b;
+  }
 }
 
 a {
@@ -566,58 +579,6 @@ section {
   transform: scale(1);
 }
 
-.blogs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
-  margin-top: 3rem;
-}
-.blogs .blog {
-  position: relative;
-  background-color: var(--color-grey-5);
-  border-radius: 5px;
-  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s ease-in-out;
-}
-.blogs .blog:hover {
-  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
-  transform: translateY(-5px);
-  transition: all 0.4s ease-in-out;
-}
-.blogs .blog:hover img {
-  filter: grayscale(0);
-  transform: scale(1.1);
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
-}
-.blogs .blog img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  filter: grayscale(100%);
-  transition: all 0.4s ease-in-out;
-}
-.blogs .blog .blog-text {
-  margin-top: -7px;
-  padding: 1.1rem;
-  border-top: 8px solid var(--color-secondary);
-}
-.blogs .blog .blog-text h4 {
-  font-size: 1.5rem;
-  margin-bottom: 0.7rem;
-  transition: all 0.4s ease-in-out;
-  cursor: pointer;
-}
-.blogs .blog .blog-text h4:hover {
-  color: var(--color-secondary);
-}
-.blogs .blog .blog-text p {
-  color: var(--color-grey-2);
-  line-height: 2rem;
-  padding-bottom: 1rem;
-}
-
 .contact-content-con {
   display: flex;
   padding-top: 3.5rem;
@@ -1063,3 +1024,176 @@ canvas {
   z-index: 1;
 }
 /*# sourceMappingURL=styles.css.map */
+
+
+/* The actual timeline-blog (the vertical ruler) */
+.timeline-blog {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+
+}
+
+/* The actual timeline-blog (the vertical ruler) */
+.timeline-blog::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #94bb3b;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* container-blog around content-blog */
+.container-blog {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+/* The circles on the timeline-blog */
+.container-blog::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid #FF9F55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container-blog to the left */
+.left-blog {
+  left: 0;
+}
+
+/* Place the container-blog to the right */
+.right-blog {
+  left: 50%;
+}
+
+/* Add arrows to the left container-blog (pointing right) */
+.left-blog::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid #94bb3b;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #94bb3b;
+}
+
+/* Add arrows to the right container-blog (pointing left) */
+.right-blog::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border:  solid #83e731;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #83e731 transparent transparent;
+}
+
+/* Fix the circle for container-blogs on the right side */
+.right-blog::after {
+  left: -16px;
+}
+
+/* The actual content-blog */
+.content-blog {
+  padding: 20px 30px;
+  background-color: #83e731;
+  position: relative;
+  border-radius: 6px;
+  border-top-right-radius: 0%;
+  border-top-left-radius: 0%;
+}
+
+/* Media queries - Responsive timeline-blog on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  .timeline-blog::after {
+  left: 31px;
+  }
+  
+  /* Full-width container-blogs */
+  .container-blog {
+  width: 100%;
+  padding-left: 70px;
+  padding-right: 25px;
+  }
+  
+  /* Make sure that all arrows are pointing leftwards */
+  .container-blog::before {
+  left: 60px;
+  border: medium solid #83e731;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #83e731 transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .left-blog::after, .right-blog::after {
+  left: 15px;
+  }
+  
+  /* Make all right container-blogs behave like the left ones */
+  .right-blog {
+  left: 0%;
+  }
+}
+
+/* container-blog for columns and the top "toolbar" */
+.row-blog {
+  padding: 10px;
+  background: #f1f1f1;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+
+
+/* Three dots */
+.dot-blog {
+  margin-top: 4px;
+  height: 12px;
+  width: 12px;
+  background-color: #83e731;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+#text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+	position:absolute;
+  width:100%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
