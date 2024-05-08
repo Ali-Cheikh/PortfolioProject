@@ -44,7 +44,7 @@ var particles = [];
 
 // Set canvas size to cover the whole window
 canvas.width = window.innerWidth;
-canvas.height = document.body.clientHeight;
+canvas.height = window.innerHeight;
 
 
 function Particle() {
@@ -72,7 +72,7 @@ Particle.prototype.update = function () {
 };
 
 Particle.prototype.draw = function () {
-  ctx.fillStyle = "#ffffff";
+  ctx.fillStyle = "#f545ffff";
   ctx.beginPath();
   ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
   ctx.fill();
