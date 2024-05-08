@@ -56,15 +56,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     center top
                     no-repeat
                 `,
-                onClose: () => {
-                    // Submit the form data after the alert is closed
-                    form.submit();
-                },
                 customClass: {
                 backdrop: 'swal2-backdrop-color',
                 popup: 'swal2-popup-color'
             }
-            }).then(() => { window.location.reload(); }); // Reload the page after successful submission
+            }).then(() => {
+                form.submit();
+                window.location.reload(); }); // Reload the page after successful submission
         })
         .catch(error => {
             console.error('Error!', error.message);
