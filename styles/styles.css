@@ -57,7 +57,6 @@ body {
   font-size: 1.1rem;
   color: var(--color-white);
   transition: all 0.4s ease-in-out;
-  
 }
 .timeline-blog{
     color:var(--color-primary) ;
@@ -238,6 +237,7 @@ section {
   display: flex;
   justify-content: center;
   padding: 3.4rem 0;
+  padding-top: 0px !important;
   overflow: hidden;
   color: white;
   font-weight: 200;
@@ -255,12 +255,13 @@ section {
 }
 
 .GoodAt-item {
-  width: 250px; /* Set width based on content */
+  width: 255px; /* Set width based on content */
   border: 2px solid transparent;
   background: linear-gradient(71deg, #080509, #1a171c, #080509);
   background-clip: padding-box;
   border-radius: 10px;
   padding: 1.5%;
+  cursor: grab;
 }
 
 .bg-green-box {
@@ -988,6 +989,12 @@ section {
     padding-top: 3rem;
   }
 }
+@media screen and (min-width: 700px) {
+  .tt{
+    display: none;
+    text-align: center;
+  }
+}
 @media screen and (max-width: 700px) {
   .container {
     padding: 7rem 3rem;
@@ -1178,18 +1185,18 @@ canvas {
   position: fixed; /* Sit on top of the page content */
   display: none; /* Hidden by default */
   width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
+  height: 130%; /* Full height (cover the whole page) */
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: rgba(0,0,0,0.5); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
+  cursor: wait;
 }
 #text {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
 	position:absolute;
   width:100%;

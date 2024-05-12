@@ -79,3 +79,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+// Crisp chat widget
+        window.$crisp = [];
+        window.CRISP_WEBSITE_ID = "deadadd6-cbc1-4cff-8b3a-b0179374210f";
+    
+        // Set position of Crisp chat widget
+        $crisp.push(["do", "chat:show"]);
+    
+        // Customize position (top-left)
+        $crisp.push(["config", "chat:position", ["left", "top"]]);
