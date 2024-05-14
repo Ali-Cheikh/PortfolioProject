@@ -28,14 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
     body.style.overflow = "auto";
   });
 
-  // Function to handle horizontal scrolling when the mouse moves inside the .Marquee
-  marquee.addEventListener("mousemove", function (e) {
-    // Calculate the distance moved by the mouse
-    const movementX = e.movementX || e.mozMovementX || e.webkitMovementX || 0;
-
-    // Adjust the scrollLeft of the .Marquee to scroll horizontally
-    marquee.scrollLeft -= movementX;
-  });
 });
 
 var canvas = document.getElementById("space");
