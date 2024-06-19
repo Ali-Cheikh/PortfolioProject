@@ -19,7 +19,10 @@
   --color-grey-6: #12181b;
   --br-sm-2: 14px;
   --box-shadow-1: 0 3px 15px rgba(0,0,0,.3);
+
+
 }
+
 
 
 .light-mode {
@@ -114,6 +117,28 @@ section {
     transform: translateY(0) scaleY(1);
   }
 }
+
+
+
+body.loaded { overflow: overlay; }
+
+body.nav-active { overflow: hidden; }
+
+::-webkit-scrollbar { width: 5px; }
+
+::-webkit-scrollbar-track { background: transparent; }
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--white);
+  border-radius: 20px;
+}
+
+
+@keyframes rotate360 {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(1turn); }
+}
+.preloader.loaded .circle { opacity: 0; }
 
 .controls {
   position: fixed;
@@ -674,7 +699,6 @@ section {
   justify-content: flex-start;
 }
 
-/*Independed components*/
 .btn-con {
   display: flex;
   align-self: flex-start;
