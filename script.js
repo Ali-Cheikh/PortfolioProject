@@ -38,7 +38,6 @@ var particles = [];
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-
 function Particle() {
   this.x = Math.random() * canvas.width;
   this.y = Math.random() * canvas.height; // Use window height for spawn area
