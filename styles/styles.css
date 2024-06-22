@@ -24,7 +24,6 @@
 }
 
 
-
 .light-mode {
   --color-primary: #ffffff;
   --color-secondary: #91d317;
@@ -38,7 +37,6 @@
   --color-grey-5: #f7a8a8;
   --color-grey-6: #12181b;
 }
-
 
 .swal2-popup-color {
   background-color: rgba(101, 4, 114, 0.527) !important;
