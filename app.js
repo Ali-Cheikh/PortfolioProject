@@ -12,7 +12,6 @@
     })
 })();
 
-
 const scriptURL = 'https://script.google.com/macros/s/AKfycbxD2e-CnmNMhkebBJAUqcgOfdx_Q1hB9Xv1ekdgZlLOcoMPGckXb2SiE2VDpfdh1Ip2YA/exec';
 
 document.addEventListener('DOMContentLoaded', function () {
