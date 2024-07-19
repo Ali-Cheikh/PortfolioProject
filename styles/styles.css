@@ -437,7 +437,8 @@ body.nav-active { overflow: hidden; }
   width: 60%;
 }
 .about-stats .progress-bars .progress-bar .progress-con .progress .team {
-  width: 111%;
+  width: 120%;
+  overflow: hidden;
 }
 .about-stats .progress-bars .progress-bar .progress-con .progress .html {
   width: 95%;
@@ -456,6 +457,37 @@ body.nav-active { overflow: hidden; }
 }
 .about-stats .progress-bars .progress-bar .progress-con .progress .python {
   width: 50%;
+}
+.about-stats .progress-bars .progress-bar .progress-con .progress .googling {
+  width: 200%;
+  overflow: hidden;
+}
+@media (max-width:600px) {
+  .about-stats .progress-bars .progress-bar .progress-con .progress .team {
+    width: 105%;
+    overflow: hidden;
+  }
+  .about-stats .progress-bars .progress-bar .progress-con .progress .html {
+    width: 75% +5%;
+  }
+  .about-stats .progress-bars .progress-bar .progress-con .progress .css {
+    width: 55% +5%;
+  }
+  .about-stats .progress-bars .progress-bar .progress-con .progress .js {
+    width: 65% +5%;
+  }
+  .about-stats .progress-bars .progress-bar .progress-con .progress .react {
+    width: 30% +5%;
+  }
+  .about-stats .progress-bars .progress-bar .progress-con .progress .node {
+    width: 20% +5%;
+  }
+  .about-stats .progress-bars .progress-bar .progress-con .progress .python {
+    width: 30% +5%;
+  }
+  .about-stats .progress-bars .progress-bar .progress-con .progress .googling {
+    width: 115% ;
+  }
 }
 
 .stat-title {
