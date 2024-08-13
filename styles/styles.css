@@ -116,8 +116,6 @@ section {
   }
 }
 
-
-
 body.loaded { overflow: overlay; }
 
 body.nav-active { overflow: hidden; }
