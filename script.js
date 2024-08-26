@@ -103,7 +103,7 @@ function alert(){
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const token = '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'; // Replace with your GitHub token
+  const token = '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'; // Replace with your GitHub token
 
   const daysOfWeek = document.getElementById('days-of-week');
   const calendarGrid = document.getElementById('calendar-grid');
