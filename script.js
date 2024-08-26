@@ -103,7 +103,7 @@ function alert(){
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const token = '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'; // Replace with your GitHub token
+  const token = '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'; // Replace with your GitHub token
 
   const daysOfWeek = document.getElementById('days-of-week');
   const calendarGrid = document.getElementById('calendar-grid');
