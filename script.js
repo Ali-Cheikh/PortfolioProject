@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function fetchGitHubContributions() {
       const startOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).toISOString();
       const endOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).toISOString();
-
+      
       const query = `
       {
           viewer {
