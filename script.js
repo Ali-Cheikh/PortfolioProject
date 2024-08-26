@@ -103,7 +103,7 @@ function alert(){
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const token = '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'; // Replace with your GitHub token
+  const token = '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'; // Replace with your GitHub token
 
   const daysOfWeek = document.getElementById('days-of-week');
   const calendarGrid = document.getElementById('calendar-grid');
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function fetchGitHubContributions() {
       const startOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).toISOString();
       const endOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).toISOString();
-      
+
       const query = `
       {
           viewer {
