@@ -226,12 +226,6 @@ body.nav-active { overflow: hidden; }
   margin-left: 4rem;
   transition: all 0.4s ease-in-out;
 }
-.header-content .left-header .image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: all 0.4s ease-in-out;
-}
 .header-content .left-header .image img:hover {
   filter: grayscale(0);
 }
