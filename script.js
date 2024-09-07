@@ -209,3 +209,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial render
   updateCalendar();
 });
+
+
+document.onkeydown = (e) => {
+  const blockedKeys = {
+    123: true, // F12 key
+    I: e.ctrlKey && e.shiftKey,
+    C: e.ctrlKey && e.shiftKey,
+    J: e.ctrlKey && e.shiftKey,
+    U: e.ctrlKey,
+  };
+
+  if (blockedKeys[e.key]) {
+    e.preventDefault();
+  }
+};
