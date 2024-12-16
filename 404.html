@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 ? </title>
+    <style>
+        html{
+            display: flex;
+            justify-content: center;
+            background-color: black;
+            align-items: center;
+            max-height: 100vh;
+            overflow: hidden;
+        }
+        @media (max-width:700px) {
+            img{
+                margin-top: 30vh;
+            }
+        }
+        h1{
+            margin: 20px;
+            font-size: 1rem;
+            color: yellow;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: xx-large;
+        }
+        .glitch-button {
+            position: relative;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background: #ff0033;
+            border: 2px solid #ff0033;
+            text-transform: uppercase;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 5px;
+            }
+
+            .glitch-button::before,
+            .glitch-button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            z-index: -1;
+            animation: glitch 1.5s infinite;
+            }
+
+            .glitch-button::before {
+            left: 2px;
+            animation-delay: 0.2s;
+            }
+
+            .glitch-button::after {
+            left: -2px;
+            animation-delay: 0.4s;
+            }
+
+            @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(2px, -2px); }
+            60% { transform: translate(-2px, -2px); }
+            80% { transform: translate(2px, 2px); }
+            100% { transform: translate(0); }
+            }
+
+    </style>
+</head>
+<body>
+    <h1>hmm.., i think you wondered else-where</h1>
+    <a href="https://ali-cheikh.com/" style="color: white;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/DEC_VT100_terminal_transparent.png" width="100%" alt="something got wrong">
+    <button class="glitch-button">Let's get you home</button></a>
+
+</body>
+</html>
