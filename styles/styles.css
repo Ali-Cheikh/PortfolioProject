@@ -451,7 +451,7 @@ body.nav-active { overflow: hidden; }
   width: 50%;
 }
 .about-stats .progress-bars .progress-bar .progress-con .progress .googling {
-  width: 200%;
+  width: 700%;
   overflow: hidden;
 }
 @media (max-width:600px) {
