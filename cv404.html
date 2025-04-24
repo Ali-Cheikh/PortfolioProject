@@ -4,30 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ali Cheikh - Full Stack Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --light-color: #ecf0f1;
-            --dark-color: #34495e;
-            --accent-color: #e74c3c;
-        }
-        
+:root, [data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #f9f9f9;
+    --card-bg: #1e1e1e;
+    --skill-bg: #2a2a2a;
+    --primary-color: hsl(165, 91%, 42%);
+    --secondary-color: #10c8e0; /* Darker green */
+}
+
+[data-theme="light"] {
+    --bg-color: #f9f9f9;
+    --text-color: #000;
+    --card-bg: white;
+    --skill-bg: #ecf0f1;
+    --primary-color: #2c3e50; /* Darker blue for better contrast */
+    --secondary-color: #3498db;
+}
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             color: #333;
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f9f9f9;
+            background-color: var(--bg-color);
         }
         
         .resume-container {
-            background-color: white;
+            background-color: var(--card-bg);
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
             padding: 30px;
+            color: var(--text-color);
             position: relative;
         }
         
@@ -113,7 +127,7 @@
         }
         
         .skill {
-            background-color: var(--light-color);
+            background-color: var(--skill-bg);
             padding: 5px 10px;
             border-radius: 3px;
             font-size: 0.9em;
@@ -123,19 +137,37 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: var(--accent-color);
+            background-color: rgba(255, 0, 0, 0.507);
             color: white;
             border: none;
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
+            backdrop-filter: blur(5px);
+            filter: blur(0.5px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+        .theme-toggle {
+            position: fixed;
+            bottom: 60px;
+            right: 20px;
+            background-color: var(--dark-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            backdrop-filter: blur(5px);
+            filter: blur(0.5px);
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             z-index: 100;
         }
         
         .pdf-button:hover {
-            background-color: #c0392b;
+            background-color: #ee6151;
         }
         
         @media print {
@@ -153,10 +185,70 @@
                 padding: 0;
             }
         }
+
+        .two-column {
+            display: flex;
+            gap: 30px;
+        }
+
+        .column {
+            flex: 1;
+        }
+
+        .certifications {
+            margin-top: 10px;
+        }
+
+        .certification {
+            margin-bottom: 10px;
+        }
+
+.two-column {
+    display: flex;
+    gap: 15mm; /* Reduced gap */
+    margin-top: 10mm;
+}
+
+/* Adjust font sizes for better fit */
+h1 {
+    font-size: 24pt;
+}
+
+h2 {
+    font-size: 14pt;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+p, li {
+    font-size: 10pt;
+    line-height: 1.4;
+}
+
+/* Adjust spacing between sections */
+.section {
+    margin-bottom: 15px;
+}
+
+/* Adjust skills container */
+.skills-container {
+    gap: 8px;
+}
+
+.skill {
+    font-size: 9pt;
+    padding: 3px 8px;
+}
+
+
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon" style="filter:blur(0)"></i>
+    </button>
+    
     <button class="pdf-button" id="pdfButton">
         <i class="fas fa-file-pdf"></i> Download PDF
     </button>
@@ -314,26 +406,85 @@
     </div>
 
     <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const bodyElement = document.body;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            bodyElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = bodyElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            // Smooth transition for color change
+            bodyElement.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+
+            
+            bodyElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            const icon = themeToggle.querySelector('i');
+            icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+            icon.style.color = theme === 'light' ? '#2c3e50' : '#f39c12' ; // Change icon color based on theme
+            icon.style.transition = 'color 0.3s ease'; // Smooth transition for color change
+        }
+
+        // PDF Generation Functionality
         document.getElementById('pdfButton').addEventListener('click', function() {
-            const element = document.getElementById('resumeContent');
-            const opt = {
-                margin: 10,
-                filename: 'Ali_Cheikh_Resume.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
+            if (typeof html2pdf === 'undefined') {
+                alert('html2pdf.js is not loaded. Please check your script tag or reload the page.');
+                return;
+            }
+            // Reset scroll position and theme for PDF generation
+            window.scrollTo(0, 0);
+            bodyElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');            
             
             // Show generating message
             const originalText = this.innerHTML;
             this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
             this.disabled = true;
             
-            // Generate PDF
-            html2pdf().set(opt).from(element).save().then(() => {
-                this.innerHTML = originalText;
-                this.disabled = false;
-            });
+            // hold a bit then carry with the rest
+            setTimeout(() => { 
+                const element = document.getElementById('resumeContent');
+                const opt = {
+                    margin: [10, 15, 15, 15], // top, left, bottom, right
+                    filename: 'Ali_Cheikh_Resume.pdf',
+                    image: { type: 'jpeg', quality: 1 },
+                    html2canvas: { 
+                        scale: 2,
+                        useCORS: true,
+                        scrollY: 0,
+                        windowHeight: document.documentElement.scrollHeight,
+                    },
+                    jsPDF: { 
+                        unit: 'mm', 
+                        format: 'a4', 
+                        orientation: 'portrait',
+                        pageSize: 'A4',
+                        pageOrientation: 'portrait',
+                        pageWidth: 210,
+                        pageHeight: 297,
+                        compress: true,
+                    }
+                };
+                // Generate PDF
+                html2pdf().set(opt).from(element).save().then(() => {
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                });
+            }, 1000);
+
+            
+            
         });
     </script>
 </body>
