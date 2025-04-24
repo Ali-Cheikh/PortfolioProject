@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,23 +10,26 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
-:root, [data-theme="dark"] {
-    --bg-color: #121212;
-    --text-color: #f9f9f9;
-    --card-bg: #1e1e1e;
-    --skill-bg: #2a2a2a;
-    --primary-color: hsl(165, 91%, 42%);
-    --secondary-color: #10c8e0; /* Darker green */
-}
+        :root,
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #f9f9f9;
+            --card-bg: #1e1e1e;
+            --skill-bg: #2a2a2a;
+            --primary-color: hsl(165, 91%, 42%);
+            --secondary-color: #10c8e0;
+            /* Darker green */
+        }
 
-[data-theme="light"] {
-    --bg-color: #f9f9f9;
-    --text-color: #000;
-    --card-bg: white;
-    --skill-bg: #ecf0f1;
-    --primary-color: #2c3e50; /* Darker blue for better contrast */
-    --secondary-color: #3498db;
-}
+        [data-theme="light"] {
+            --bg-color: #f9f9f9;
+            --text-color: #000;
+            --card-bg: white;
+            --skill-bg: #ecf0f1;
+            --primary-color: #2c3e50;
+            /* Darker blue for better contrast */
+            --secondary-color: #3498db;
+        }
 
         body {
             font-family: 'Poppins', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -36,40 +40,40 @@
             padding: 20px;
             background-color: var(--bg-color);
         }
-        
+
         .resume-container {
             background-color: var(--card-bg);
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             padding: 30px;
             color: var(--text-color);
             position: relative;
         }
-        
+
         header {
             text-align: center;
             margin-bottom: 30px;
             border-bottom: 2px solid var(--secondary-color);
             padding-bottom: 20px;
         }
-        
+
         h1 {
             color: var(--primary-color);
             margin-bottom: 5px;
             font-size: 2.5em;
         }
-        
+
         h2 {
             color: var(--secondary-color);
             border-bottom: 1px solid #eee;
             padding-bottom: 5px;
             margin-top: 25px;
         }
-        
+
         h3 {
             color: var(--dark-color);
             margin-bottom: 5px;
         }
-        
+
         .contact-info {
             display: flex;
             justify-content: center;
@@ -77,62 +81,64 @@
             gap: 15px;
             margin-top: 10px;
         }
-        
+
         .contact-info a {
             color: var(--primary-color);
             text-decoration: none;
             display: flex;
             align-items: center;
         }
-        
+
         .contact-info a:hover {
             color: var(--secondary-color);
         }
-        
+
         .contact-info i {
             margin-right: 5px;
         }
-        
+
         .section {
             margin-bottom: 30px;
         }
-        
-        .job, .education-item {
+
+        .job,
+        .education-item {
             margin-bottom: 20px;
         }
-        
-        .job-title, .education-title {
+
+        .job-title,
+        .education-title {
             display: flex;
             justify-content: space-between;
             font-weight: bold;
         }
-        
+
         .date {
             color: #666;
             font-style: italic;
         }
-        
+
         ul {
             padding-left: 20px;
         }
-        
+
         li {
             margin-bottom: 5px;
         }
-        
+
         .skills-container {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
-        
+
         .skill {
             background-color: var(--skill-bg);
             padding: 5px 10px;
             border-radius: 3px;
             font-size: 0.9em;
         }
-        
+
         .pdf-button {
             position: fixed;
             bottom: 20px;
@@ -146,9 +152,10 @@
             font-weight: bold;
             backdrop-filter: blur(5px);
             filter: blur(0.5px);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             z-index: 100;
         }
+
         .theme-toggle {
             position: fixed;
             bottom: 60px;
@@ -162,24 +169,24 @@
             font-weight: bold;
             backdrop-filter: blur(5px);
             filter: blur(0.5px);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             z-index: 100;
         }
-        
+
         .pdf-button:hover {
             background-color: #ee6151;
         }
-        
+
         @media print {
             .pdf-button {
                 display: none;
             }
-            
+
             body {
                 background-color: white;
                 padding: 0;
             }
-            
+
             .resume-container {
                 box-shadow: none;
                 padding: 0;
@@ -203,52 +210,52 @@
             margin-bottom: 10px;
         }
 
-.two-column {
-    display: flex;
-    gap: 15mm; /* Reduced gap */
-    margin-top: 10mm;
-}
+        .two-column {
+            display: flex;
+            gap: 15mm;
+            /* Reduced gap */
+            margin-top: 10mm;
+        }
 
-/* Adjust font sizes for better fit */
-h1 {
-    font-size: 24pt;
-}
+        /* Adjust font sizes for better fit */
+        h1 {
+            font-size: 24pt;
+        }
 
-h2 {
-    font-size: 14pt;
-    margin-top: 15px;
-    margin-bottom: 10px;
-}
+        h2 {
+            font-size: 14pt;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
 
-p, li {
-    font-size: 10pt;
-    line-height: 1.4;
-}
+        p,
+        li {
+            font-size: 10pt;
+            line-height: 1.4;
+        }
 
-/* Adjust spacing between sections */
-.section {
-    margin-bottom: 15px;
-}
+        /* Adjust spacing between sections */
+        .section {
+            margin-bottom: 15px;
+        }
 
-/* Adjust skills container */
-.skills-container {
-    gap: 8px;
-}
+        /* Adjust skills container */
+        .skills-container {
+            gap: 8px;
+        }
 
-.skill {
-    font-size: 9pt;
-    padding: 3px 8px;
-}
-
-
+        .skill {
+            font-size: 9pt;
+            padding: 3px 8px;
+        }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
     <button class="theme-toggle" id="themeToggle">
         <i class="fas fa-moon" style="filter:blur(0)"></i>
     </button>
-    
+
     <button class="pdf-button" id="pdfButton">
         <i class="fas fa-file-pdf"></i> Download PDF
     </button>
@@ -261,14 +268,20 @@ p, li {
                 <a href="mailto:contact@alicheikh.tn"><i class="fas fa-envelope"></i> contact@alicheikh.tn</a>
                 <a href="tel:+21690725434"><i class="fas fa-phone"></i> +216 90 725 434</a>
                 <a href="https://www.ali-cheikh.com/" target="_blank"><i class="fas fa-globe"></i> ali-cheikh.com</a>
-                <a href="https://linkedin.com/in/ali-cheikh" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/ali-cheikh</a>
-                <a href="https://discord.com/users/679042699277369365" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+                <a href="https://linkedin.com/in/ali-cheikh" target="_blank"><i class="fab fa-linkedin"></i>
+                    linkedin.com/in/ali-cheikh</a>
+                <a href="https://discord.com/users/679042699277369365" target="_blank"><i class="fab fa-discord"></i>
+                    Discord</a>
             </div>
         </header>
 
         <section class="section">
             <h2>PROFESSIONAL SUMMARY</h2>
-            <p>Passionate Full-Stack Developer with 5+ years of hands-on experience crafting clean, efficient web solutions. Familiar with a wide range of programming utilities and languages. Knowledgeable of backend and frontend development requirements. Proficient in bridging vanilla web fundamentals. Handles any part of the process with ease. Collaborative team player with excellent technical abilities offering years of related experience.</p>
+            <p>Passionate Full-Stack Developer with 5+ years of hands-on experience crafting clean, efficient web
+                solutions. Familiar with a wide range of programming utilities and languages. Knowledgeable of backend
+                and frontend development requirements. Proficient in bridging vanilla web fundamentals. Handles any part
+                of the process with ease. Collaborative team player with excellent technical abilities offering years of
+                related experience.</p>
         </section>
 
         <section class="section">
@@ -280,7 +293,7 @@ p, li {
                 </div>
                 <p>High School Diploma | Field of Study: Computer Science</p>
             </div>
-            
+
             <div class="education-item">
                 <div class="education-title">
                     <span>Online Institutions & Platforms</span>
@@ -288,13 +301,16 @@ p, li {
                 </div>
                 <p>Self-Taught Developer</p>
                 <ul>
-                    <li>Advanced Web Development resources and certifications collected from online courses (Udemy, Coursera, Azure Learn, Microsoft Learn, Google Developer Programme, Discord Communities, YouTube, and others).</li>
+                    <li>Advanced Web Development resources and certifications collected from online courses (Udemy,
+                        Coursera, Azure Learn, Microsoft Learn, Google Developer Programme, Discord Communities,
+                        YouTube, and others).</li>
                     <li>Attended various Events, Camps, and Hackathons, winning 6 out of many attended.</li>
-                    <li>Focus: Full-Stack Development, Performance Optimization, Automation, Design, Animation, Ethical Hacking, and understanding the concepts of technology.</li>
+                    <li>Focus: Full-Stack Development, Performance Optimization, Automation, Design, Animation, Ethical
+                        Hacking, and understanding the concepts of technology.</li>
                     <li>Member of MTC, 2022 to 2024.</li>
                 </ul>
             </div>
-            
+
             <div class="education-item">
                 <div class="education-title">
                     <span>GoMyCode - Sfax, Tunisia</span>
@@ -302,7 +318,9 @@ p, li {
                 </div>
                 <p>Full Stack JS: Web Development Foundations of Software Development Basics</p>
                 <ul>
-                    <li>Understand the differences between the Internet and the Web, explore Web Architecture, Databases, and Web Development, create websites using a Content Management System (CMS), and learn Git basics, GitHub setup, and project workflow.</li>
+                    <li>Understand the differences between the Internet and the Web, explore Web Architecture,
+                        Databases, and Web Development, create websites using a Content Management System (CMS), and
+                        learn Git basics, GitHub setup, and project workflow.</li>
                     <li>Front-End Development Basics</li>
                     <li>JavaScript Fundamentals & Algorithms</li>
                     <li>ReactJS & Advanced JavaScript</li>
@@ -318,6 +336,7 @@ p, li {
                 <span class="skill">CSS3/Sass</span>
                 <span class="skill">JavaScript</span>
                 <span class="skill">Node.js</span>
+                <span class="skill">Python</span>
                 <span class="skill">React</span>
                 <span class="skill">Cross-Browser Optimization</span>
                 <span class="skill">PHP</span>
@@ -333,7 +352,7 @@ p, li {
                 <span class="skill">REST APIs</span>
                 <span class="skill">API Development</span>
                 <span class="skill">Google Apps Script</span>
-                <span class="skill">Web Performance</span>
+                <span class="skill">Directory Architecture</span>
                 <span class="skill">Security</span>
                 <span class="skill">Automation</span>
                 <span class="skill">UI/UX Design</span>
@@ -350,25 +369,30 @@ p, li {
                     <span class="date">01/2022 – Current</span>
                 </div>
                 <ul>
-                    <li>Built a full-stack platform delivering learning resources and an E-selling page for book-courses.</li>
+                    <li>Built a full-stack platform delivering learning resources and an E-selling page for
+                        book-courses.</li>
                     <li>Optimized page load times by 40% through code splitting and caching strategies.</li>
                     <li>Integrated interactive features for real-time language practice.</li>
-                    <li>Ensured data integrity by designing robust database schemas that effectively support strong security and email marketing.</li>
+                    <li>Ensured data integrity by designing robust database schemas that effectively support strong
+                        security and email marketing.</li>
                 </ul>
             </div>
-            
+
             <div class="job">
                 <div class="job-title">
                     <span><strong>Co-Work Developer</strong> | i-startup.tn</span>
                     <span class="date">01/2021 – Current</span>
                 </div>
                 <ul>
-                    <li>Collaborated on backend tools and automation scripts for the co-work program to improve customer engagement.</li>
-                    <li>Streamlined internal workflows using Google Apps Script and Google Sheets, maintaining a table database for easier management access and security.</li>
-                    <li>Worked closely with clients to gather requirements and translate them into technical specifications for implementation.</li>
+                    <li>Collaborated on backend tools and automation scripts for the co-work program to improve customer
+                        engagement.</li>
+                    <li>Streamlined internal workflows using Google Apps Script and Google Sheets, maintaining a table
+                        database for easier management access and security.</li>
+                    <li>Worked closely with clients to gather requirements and translate them into technical
+                        specifications for implementation.</li>
                 </ul>
             </div>
-            
+
             <div class="job">
                 <div class="job-title">
                     <span><strong>Freelance Web Developer</strong></span>
@@ -383,21 +407,25 @@ p, li {
 
         <section class="section">
             <h2>OPEN TO ROLES</h2>
-            <p>Open to roles where I can leverage my full-stack skills to build fast, functional, and future-proof solutions.</p>
+            <p>Open to roles where I can leverage my full-stack skills to build fast, functional, and future-proof
+                solutions.</p>
         </section>
 
         <section class="section">
             <h2>PASSIONS AND GOALS</h2>
             <ul>
-                <li><strong>Expand Expertise:</strong> Continuously learning new tools to build impactful, ethical tech.</li>
-                <li><strong>Solve Real Problems:</strong> Whether automating workflows or refining UI, I thrive on creating solutions that matter.</li>
-                <li><strong>Community Growth:</strong> Actively contribute to Tunisia's tech ecosystem through mentorship and collaboration.</li>
+                <li><strong>Expand Expertise:</strong> Continuously learning new tools to build impactful, ethical tech.
+                </li>
+                <li><strong>Solve Real Problems:</strong> Whether automating workflows or refining UI, I thrive on
+                    creating solutions that matter.</li>
+                <li><strong>Community Growth:</strong> Actively contribute to Tunisia's tech ecosystem through
+                    mentorship and collaboration.</li>
             </ul>
         </section>
 
-        <section class="section">
+        <section class="section" style="margin-bottom: 0; padding: 0;">
             <h2>LANGUAGES</h2>
-            <ul>
+            <ul style="display: flex; gap: 20px; list-style: none; padding: 0;">
                 <li><strong>English:</strong> Full Professional</li>
                 <li><strong>Arabic:</strong> Native or Bilingual</li>
                 <li><strong>French:</strong> Limited Working</li>
@@ -423,7 +451,7 @@ p, li {
             // Smooth transition for color change
             bodyElement.style.transition = 'background-color 0.3s ease, color 0.3s ease';
 
-            
+
             bodyElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             updateThemeIcon(newTheme);
@@ -432,12 +460,12 @@ p, li {
         function updateThemeIcon(theme) {
             const icon = themeToggle.querySelector('i');
             icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-            icon.style.color = theme === 'light' ? '#2c3e50' : '#f39c12' ; // Change icon color based on theme
+            icon.style.color = theme === 'light' ? '#2c3e50' : '#f39c12'; // Change icon color based on theme
             icon.style.transition = 'color 0.3s ease'; // Smooth transition for color change
         }
 
         // PDF Generation Functionality
-        document.getElementById('pdfButton').addEventListener('click', function() {
+        document.getElementById('pdfButton').addEventListener('click', function () {
             if (typeof html2pdf === 'undefined') {
                 alert('html2pdf.js is not loaded. Please check your script tag or reload the page.');
                 return;
@@ -445,34 +473,34 @@ p, li {
             // Reset scroll position and theme for PDF generation
             window.scrollTo(0, 0);
             bodyElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');            
-            
+            localStorage.setItem('theme', 'light');
+
             // Show generating message
             const originalText = this.innerHTML;
             this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
             this.disabled = true;
-            
+
             // hold a bit then carry with the rest
-            setTimeout(() => { 
+            setTimeout(() => {
                 const element = document.getElementById('resumeContent');
                 const opt = {
                     margin: [10, 15, 15, 15], // top, left, bottom, right
                     filename: 'Ali_Cheikh_Resume.pdf',
                     image: { type: 'jpeg', quality: 1 },
-                    html2canvas: { 
+                    html2canvas: {
                         scale: 2,
                         useCORS: true,
                         scrollY: 0,
                         windowHeight: document.documentElement.scrollHeight,
                     },
-                    jsPDF: { 
-                        unit: 'mm', 
-                        format: 'a4', 
+                    jsPDF: {
+                        unit: 'mm',
+                        format: 'a4',
                         orientation: 'portrait',
                         pageSize: 'A4',
                         pageOrientation: 'portrait',
                         pageWidth: 210,
-                        pageHeight: 297,
+                        pageHeight: 296,
                         compress: true,
                     }
                 };
@@ -482,10 +510,8 @@ p, li {
                     this.disabled = false;
                 });
             }, 1000);
-
-            
-            
         });
     </script>
 </body>
+
 </html>
