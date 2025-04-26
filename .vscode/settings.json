@@ -14,5 +14,8 @@
         "popupp",
         "Puneet"
     ],
-    "liveServer.settings.port": 3001
+    "liveServer.settings.port": 3001,
+    "vscode_vibrancy.enableAutoTheme": true,
+    "vscode_vibrancy.opacity": 1,
+    "vscode_vibrancy.refreshInterval": 1
 }
