@@ -12,7 +12,7 @@
     })
 })();
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycby7mR7WzHfwgbbTPz5iaFgH6t5pKEV8zd2fPzL2fzo-Lr_m_70qCNC3P1lGLqvA87JwwQ/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbz6MSIJDrCDZFIz5aVy9N65bOlFeF5szEgnMQgrsvzGrg4vLZpFmBQ-7gSltVQUZvIr/exec';
 
 
 document.addEventListener('DOMContentLoaded', function () {
