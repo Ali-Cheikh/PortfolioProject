@@ -4,465 +4,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Cheikh - Full Stack Developer</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Ali Cheikh - Frontend Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <style>
-        :root,
-        [data-theme="dark"] {
-            --bg-color: #121212;
-            --text-color: #f9f9f9;
-            --card-bg: #1e1e1e;
-            --skill-bg: #2a2a2a;
-            --primary-color: hsl(165, 91%, 42%);
-            --secondary-color: #10c8e0;
-            /* Darker green */
-        }
-
-        [data-theme="light"] {
-            --bg-color: #f9f9f9;
-            --text-color: #000;
-            --card-bg: white;
-            --skill-bg: #ecf0f1;
-            --primary-color: #2c3e50;
-            /* Darker blue for better contrast */
-            --secondary-color: #3498db;
-        }
-
-        body {
-            font-family: 'Poppins', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: var(--bg-color);
-        }
-
-        .resume-container {
-            background-color: var(--card-bg);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            color: var(--text-color);
-            position: relative;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 20px;
-        }
-
-        h1 {
-            color: var(--primary-color);
-            margin-bottom: 5px;
-            font-size: 2.5em;
-        }
-
-        h2 {
-            color: var(--secondary-color);
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-            margin-top: 25px;
-        }
-
-        h3 {
-            color: var(--dark-color);
-            margin-bottom: 5px;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .contact-info a {
-            color: var(--primary-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-info a:hover {
-            color: var(--secondary-color);
-        }
-
-        .contact-info i {
-            margin-right: 5px;
-        }
-
-        .section {
-            margin-bottom: 30px;
-        }
-
-        .job,
-        .education-item {
-            margin-bottom: 20px;
-        }
-
-        .job-title,
-        .education-title {
-            display: flex;
-            justify-content: space-between;
-            font-weight: bold;
-        }
-
-        .date {
-            color: #666;
-            font-style: italic;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 5px;
-        }
-
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill {
-            background-color: var(--skill-bg);
-            padding: 5px 10px;
-            border-radius: 3px;
-            font-size: 0.9em;
-        }
-
-        .pdf-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: rgba(255, 0, 0, 0.507);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            backdrop-filter: blur(5px);
-            filter: blur(0.5px);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            z-index: 100;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            bottom: 60px;
-            right: 20px;
-            background-color: var(--dark-color);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            backdrop-filter: blur(5px);
-            filter: blur(0.5px);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            z-index: 100;
-        }
-
-        .pdf-button:hover {
-            background-color: #ee6151;
-        }
-
-        @media print {
-            .pdf-button {
-                display: none;
-            }
-
-            body {
-                background-color: white;
-                padding: 0;
-            }
-
-            .resume-container {
-                box-shadow: none;
-                padding: 0;
-            }
-        }
-
-        .two-column {
-            display: flex;
-            gap: 30px;
-        }
-
-        .column {
-            flex: 1;
-        }
-
-        .certifications {
-            margin-top: 10px;
-        }
-
-        .certification {
-            margin-bottom: 10px;
-        }
-
-        .two-column {
-            display: flex;
-            gap: 15mm;
-            /* Reduced gap */
-            margin-top: 10mm;
-        }
-
-        /* Adjust font sizes for better fit */
-        h1 {
-            font-size: 24pt;
-        }
-
-        h2 {
-            font-size: 14pt;
-            margin-top: 15px;
-            margin-bottom: 10px;
-        }
-
-        p,
-        li {
-            font-size: 10pt;
-            line-height: 1.4;
-        }
-
-        /* Adjust spacing between sections */
-        .section {
-            margin-bottom: 15px;
-        }
-
-        /* Adjust skills container */
-        .skills-container {
-            gap: 8px;
-        }
-
-        .skill {
-            font-size: 9pt;
-            padding: 3px 8px;
-        }
-    </style>
+<link rel="stylesheet" href="styles/stylescv.css">
 </head>
 
-<body>
-    <button class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon" style="filter:blur(0)"></i>
-    </button>
+<body data-theme="dark"> <!-- Changed default to dark mode -->
+    <div class="controls">
+        <button class="control-btn" id="themeToggle">
+            <i class="fas fa-sun"></i> Light Mode <!-- Updated icon and text -->
+        </button>
+        <button class="control-btn" id="pdfButton">
+            <i class="fas fa-file-pdf"></i> Download PDF
+        </button>
+    </div>
 
-    <button class="pdf-button" id="pdfButton">
-        <i class="fas fa-file-pdf"></i> Download PDF
-    </button>
-
-    <div class="resume-container" id="resumeContent">
-        <header>
-            <h1>ALI CHEIKH</h1>
-            <h2>Full Stack Web Developer</h2>
-            <div class="contact-info">
-                <a href="mailto:contact@alicheikh.tn"><i class="fas fa-envelope"></i> contact@alicheikh.tn</a>
-                <a href="tel:+21690725434"><i class="fas fa-phone"></i> +216 90 725 434</a>
-                <a href="https://www.ali-cheikh.com/" target="_blank"><i class="fas fa-globe"></i> ali-cheikh.com</a>
-                <a href="https://linkedin.com/in/ali-cheikh" target="_blank"><i class="fab fa-linkedin"></i>
-                    linkedin.com/in/ali-cheikh</a>
-                <a href="https://discord.com/users/679042699277369365" target="_blank"><i class="fab fa-discord"></i>
-                    Discord</a>
-            </div>
-        </header>
-
-        <section class="section">
-            <h2>PROFESSIONAL SUMMARY</h2>
-            <p>Passionate Full-Stack Developer with 5+ years of hands-on experience crafting clean, efficient web
-                solutions. Familiar with a wide range of programming utilities and languages. Knowledgeable of backend
-                and frontend development requirements. Proficient in bridging vanilla web fundamentals. Handles any part
-                of the process with ease. Collaborative team player with excellent technical abilities offering years of
-                related experience.</p>
-        </section>
-
-        <section class="section">
-            <h2>EDUCATION</h2>
-            <div class="education-item">
-                <div class="education-title">
-                    <span>Lycée Fathel Ben Achour - Sfax, Tunisia</span>
-                    <span class="date">Expected in 06/2025</span>
+    <div class="page-container">
+        <div class="resume-content" id="resumeContent">
+            <header>
+                <h1>Ali Cheikh</h1>
+                <div class="subtitle">Frontend Developer & Web Development Educator</div>
+                <div class="contact-info">
+                    <a href="mailto:contact@ali-cheikh.com"><i class="fas fa-envelope"></i> contact@ali-cheikh.com</a>
+                    <a href="tel:+21690725434"><i class="fas fa-phone"></i> +216 90 725 434</a>
+                    <a href="https://www.ali-cheikh.com"><i class="fas fa-globe"></i> ali-cheikh.com</a>
+                    <a href="https://linkedin.com/in/ali-cheikh"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
-                <p>High School Diploma | Field of Study: Computer Science</p>
+            </header>
+
+            <div class="summary">
+                <strong>Frontend-focused Full Stack Developer</strong> with 6 years of experience building modern web applications and teaching web development. Expert in vanilla JavaScript, React, and creating efficient small-scale solutions with Google Sheets integration and API development.
             </div>
 
-            <div class="education-item">
-                <div class="education-title">
-                    <span>Online Institutions & Platforms</span>
-                    <span class="date">01/2018 – Present</span>
+            <div class="two-column">
+                <div class="left-column">
+                    <section class="section">
+                        <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+                        
+                        <div class="job">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">Software Developer Intern</div>
+                                    <div class="company">BINetCom</div>
+                                </div>
+                                <div class="date">Jul 2025 – Aug 2025</div>
+                            </div>
+                            <div class="job-description">
+                                <ul>
+                                    <li>Developed company website and custom invoicing application</li>
+                                    <li>Built responsive frontend interfaces with modern JavaScript</li>
+                                    <li>Streamlined internal business processes through web automation</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="job">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">Web Developer</div>
+                                    <div class="company">LingoLand</div>
+                                </div>
+                                <div class="date">Jun 2024 – Jul 2025</div>
+                            </div>
+                            <div class="job-description">
+                                <ul>
+                                    <li>Created interactive learning resources and e-commerce pages</li>
+                                    <li>Integrated Google APIs and implemented SEO strategies</li>
+                                    <li>Optimized performance and user experience across platforms</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                       <div class="job">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">Web Developer</div>
+                                    <div class="company">Quillow</div>
+                                </div>
+                                <div class="date">Apr 2024 – Jun 2024</div>
+                            </div>
+                            <div class="job-description">
+                                <ul>
+                                    <li>Developed GitHub integration widget for user profiles</li>
+                                    <li>Implemented API connections to fetch and display repository data</li>
+                                    <li>Created responsive UI components for showcasing GitHub activity</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="job">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">Freelance Web Developer</div>
+                                    <div class="company">Self-Employed</div>
+                                </div>
+                                <div class="date">Jan 2019 – Present</div>
+                            </div>
+                            <div class="job-description">
+                                <ul>
+                                    <li>Delivered 50+ web solutions including static sites and dynamic apps</li>
+                                    <li>Specialized in vanilla JavaScript, React, and Node.js development</li>
+                                    <li>Created automation tools and custom business solutions</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="job">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">Tech Club Manager</div>
+                                    <div class="company">Det Development</div>
+                                </div>
+                                <div class="date">Sep 2021 – Dec 2024</div>
+                            </div>
+                            <div class="job-description">
+                                <ul>
+                                    <li>Mentored high school students in web development</li>
+                                    <li>Organized coding workshops and collaborative projects</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="job">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">Developer</div>
+                                    <div class="company">i-startup - co-work solutions</div>
+                                </div>
+                                <div class="date">Jan 2021 – Jun 2022</div>
+                            </div>
+                            <div class="job-description">
+                                <ul>
+                                    <li>Automated processes using Google Apps Script</li>
+                                    <li>Built email marketing and reporting tools</li>
+                                    <li>Developed backend tools for client management and reporting</li>
+                                    <li>Automated internal processes using Google Apps Script and Sheets, improving efficiency</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                        
+                        <div class="education-item">
+                            <div class="education-header">
+                                <div class="institution">Mediterranean Institute of Technology</div>
+                                <div class="date">Aug 2025 – Present</div>
+                            </div>
+                            <div class="degree">Computer Science Student</div>
+                        </div>
+
+                        <div class="education-item">
+                            <div class="education-header">
+                                <div class="institution">Lycée Fathel Ben Achour, Sfax</div>
+                                <div class="date">Jun 2025</div>
+                            </div>
+                            <div class="degree">Baccalauréat, Computer Science</div>
+                        </div>
+                    </section>
                 </div>
-                <p>Self-Taught Developer</p>
-                <ul>
-                    <li>Advanced Web Development resources and certifications collected from online courses (Udemy,
-                        Coursera, Azure Learn, Microsoft Learn, Google Developer Programme, Discord Communities,
-                        YouTube, and others).</li>
-                    <li>Attended various Events, Camps, and Hackathons, winning 6 out of many attended.</li>
-                    <li>Focus: Full-Stack Development, Performance Optimization, Automation, Design, Animation, Ethical
-                        Hacking, and understanding the concepts of technology.</li>
-                    <li>Member of MTC, 2022 to 2024.</li>
-                </ul>
-            </div>
 
-            <div class="education-item">
-                <div class="education-title">
-                    <span>GoMyCode - Sfax, Tunisia</span>
-                    <span class="date">01/2018 – 01/2020</span>
+                <div class="right-column">
+                    <section class="section">
+                        <h2><i class="fas fa-code"></i> Technical Skills</h2>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <strong>Frontend:</strong> HTML5, CSS3/Sass, JavaScript (ES6+), React
+                            </div>
+                            <div class="skill-category">
+                                <strong>Backend:</strong> Node.js, PHP, REST APIs, SQL
+                            </div>
+                            <div class="skill-category">
+                                <strong>Database:</strong> PostgreSQL, Google Sheets API, Supabase
+                            </div>
+                            <div class="skill-category">
+                                <strong>Tools:</strong> Git, GitHub, Cloudflare, Domain Management
+                            </div>
+                            <div class="skill-category">
+                                <strong>AI Tools:</strong> ChatGPT, Claude, Deepseek, V0
+                            </div>
+                            <div class="skill-category">
+                                <strong>Other:</strong> UI/UX Design, SEO, Performance Optimization
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2><i class="fas fa-project-diagram"></i> Key Projects</h2>
+                        
+                        <div class="job">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">Total Connect Platform</div>
+                                </div>
+                                <div class="date">Jun 2025 – Present</div>
+                            </div>
+                            <div class="job-description">
+                                Co-founded eco-conscious digital communication platform with full-stack development.
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2><i class="fas fa-certificate"></i> Certifications</h2>
+                        <div class="job-description">
+                            <ul>
+                                <li>GoMyCode Full Stack JavaScript Bootcamp</li>
+                                <li>Udemy, Coursera Web Development Courses</li>
+                                <li>Microsoft & Nvidia Technical Certifications</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2><i class="fas fa-language"></i> Languages</h2>
+                        <div class="languages">
+                            <div class="language-item">
+                                <div class="language-name">English</div>
+                                <div class="language-level">Professional</div>
+                            </div>
+                            <div class="language-item">
+                                <div class="language-name">Arabic</div>
+                                <div class="language-level">Native</div>
+                            </div>
+                            <div class="language-item">
+                                <div class="language-name">French</div>
+                                <div class="language-level">Conversational</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2><i class="fas fa-star"></i> Specializations</h2>
+                        <div class="specializations">
+                            <ul>
+                                <li><strong>Frontend Development:</strong> Responsive design & modern frameworks</li>
+                                <li><strong>Small-Scale Apps:</strong> Rapid prototyping with Google Sheets integration</li>
+                                <li><strong>Web Development Education:</strong> Teaching coding to students</li>
+                                <li><strong>Business Automation:</strong> Workflow optimization tools</li>
+                            </ul>
+                        </div>
+                    </section>
                 </div>
-                <p>Full Stack JS: Web Development Foundations of Software Development Basics</p>
-                <ul>
-                    <li>Understand the differences between the Internet and the Web, explore Web Architecture,
-                        Databases, and Web Development, create websites using a Content Management System (CMS), and
-                        learn Git basics, GitHub setup, and project workflow.</li>
-                    <li>Front-End Development Basics</li>
-                    <li>JavaScript Fundamentals & Algorithms</li>
-                    <li>ReactJS & Advanced JavaScript</li>
-                    <li>React, State Management, and Back-End Integration</li>
-                </ul>
             </div>
-        </section>
-
-        <section class="section">
-            <h2>SKILLS</h2>
-            <div class="skills-container">
-                <span class="skill">HTML5</span>
-                <span class="skill">CSS3/Sass</span>
-                <span class="skill">JavaScript</span>
-                <span class="skill">Node.js</span>
-                <span class="skill">Python</span>
-                <span class="skill">React</span>
-                <span class="skill">Cross-Browser Optimization</span>
-                <span class="skill">PHP</span>
-                <span class="skill">SQL</span>
-                <span class="skill">WAMP</span>
-                <span class="skill">Cloudflare</span>
-                <span class="skill">CDN</span>
-                <span class="skill">DDoS Protection</span>
-                <span class="skill">DNS Management</span>
-                <span class="skill">Workers</span>
-                <span class="skill">Git/GitHub</span>
-                <span class="skill">Actions and Deployment</span>
-                <span class="skill">REST APIs</span>
-                <span class="skill">API Development</span>
-                <span class="skill">Google Apps Script</span>
-                <span class="skill">Directory Architecture</span>
-                <span class="skill">Security</span>
-                <span class="skill">Automation</span>
-                <span class="skill">UI/UX Design</span>
-                <span class="skill">Animation</span>
-                <span class="skill">Ethical Hacking</span>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>EXPERIENCE</h2>
-            <div class="job">
-                <div class="job-title">
-                    <span><strong>Lead Full Stack Developer</strong> | Lingo-Land.net - Sfax, Tunisia</span>
-                    <span class="date">01/2022 – Current</span>
-                </div>
-                <ul>
-                    <li>Built a full-stack platform delivering learning resources and an E-selling page for
-                        book-courses.</li>
-                    <li>Optimized page load times by 40% through code splitting and caching strategies.</li>
-                    <li>Integrated interactive features for real-time language practice.</li>
-                    <li>Ensured data integrity by designing robust database schemas that effectively support strong
-                        security and email marketing.</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <div class="job-title">
-                    <span><strong>Co-Work Developer</strong> | i-startup.tn</span>
-                    <span class="date">01/2021 – Current</span>
-                </div>
-                <ul>
-                    <li>Collaborated on backend tools and automation scripts for the co-work program to improve customer
-                        engagement.</li>
-                    <li>Streamlined internal workflows using Google Apps Script and Google Sheets, maintaining a table
-                        database for easier management access and security.</li>
-                    <li>Worked closely with clients to gather requirements and translate them into technical
-                        specifications for implementation.</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <div class="job-title">
-                    <span><strong>Freelance Web Developer</strong></span>
-                    <span class="date">01/2019 – Current</span>
-                </div>
-                <ul>
-                    <li>Delivered 50+ client projects, including static sites, web apps, and automation tools.</li>
-                    <li>Crafted custom portfolios with vanilla JS/HTML/CSS, avoiding CMS bloat.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>OPEN TO ROLES</h2>
-            <p>Open to roles where I can leverage my full-stack skills to build fast, functional, and future-proof
-                solutions.</p>
-        </section>
-
-        <section class="section">
-            <h2>PASSIONS AND GOALS</h2>
-            <ul>
-                <li><strong>Expand Expertise:</strong> Continuously learning new tools to build impactful, ethical tech.
-                </li>
-                <li><strong>Solve Real Problems:</strong> Whether automating workflows or refining UI, I thrive on
-                    creating solutions that matter.</li>
-                <li><strong>Community Growth:</strong> Actively contribute to Tunisia's tech ecosystem through
-                    mentorship and collaboration.</li>
-            </ul>
-        </section>
-
-        <section class="section" style="margin-bottom: 0; padding: 0;">
-            <h2>LANGUAGES</h2>
-            <ul style="display: flex; gap: 20px; list-style: none; padding: 0;">
-                <li><strong>English:</strong> Full Professional</li>
-                <li><strong>Arabic:</strong> Native or Bilingual</li>
-                <li><strong>French:</strong> Limited Working</li>
-            </ul>
-        </section>
+        </div>
     </div>
 
     <script>
         // Theme Toggle Functionality
         const themeToggle = document.getElementById('themeToggle');
         const bodyElement = document.body;
-
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            bodyElement.setAttribute('data-theme', savedTheme);
-            updateThemeIcon(savedTheme);
-        }
+        let currentTheme = 'dark'; // Set initial theme to dark
 
         themeToggle.addEventListener('click', () => {
-            const currentTheme = bodyElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            // Smooth transition for color change
-            bodyElement.style.transition = 'background-color 0.3s ease, color 0.3s ease';
-
-
-            bodyElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            bodyElement.setAttribute('data-theme', currentTheme);
+            
+            // Update button
+            if (currentTheme === 'dark') {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+            }
         });
 
-        function updateThemeIcon(theme) {
-            const icon = themeToggle.querySelector('i');
-            icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-            icon.style.color = theme === 'light' ? '#2c3e50' : '#f39c12'; // Change icon color based on theme
-            icon.style.transition = 'color 0.3s ease'; // Smooth transition for color change
-        }
 
         // PDF Generation Functionality
         document.getElementById('pdfButton').addEventListener('click', function () {
@@ -484,11 +291,11 @@
             setTimeout(() => {
                 const element = document.getElementById('resumeContent');
                 const opt = {
-                    margin: [10, 15, 15, 15], // top, left, bottom, right
+                    margin: [5, 10, 15, 10], // top, left, bottom, right
                     filename: 'Ali_Cheikh_Resume.pdf',
                     image: { type: 'jpeg', quality: 1 },
                     html2canvas: {
-                        scale: 2,
+                        scale: 2.5,
                         useCORS: true,
                         scrollY: 0,
                         windowHeight: document.documentElement.scrollHeight,
@@ -500,7 +307,7 @@
                         pageSize: 'A4',
                         pageOrientation: 'portrait',
                         pageWidth: 210,
-                        pageHeight: 296,
+                        pageHeight: 297,
                         compress: true,
                     }
                 };
@@ -510,8 +317,24 @@
                     this.disabled = false;
                 });
             }, 1000);
+
+
+
+        });
+        
+        
+        // Check content height on load
+        window.addEventListener('load', () => {
+            const container = document.querySelector('.page-container');
+            const content = document.querySelector('.resume-content');
+            
+            console.log('Content height:', content.scrollHeight);
+            console.log('Container height:', container.offsetHeight);
+            
+            if (content.scrollHeight > container.offsetHeight) {
+                console.warn('Content may overflow A4 page');
+            }
         });
     </script>
 </body>
-
 </html>

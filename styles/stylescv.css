@@ -1,0 +1,324 @@
+ :root,
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #f9f9f9;
+            --card-bg: #1e1e1e;
+            --skill-bg: #2a2a2a;
+            --primary-color: #00b4d8;
+            --secondary-color: #0077b6;
+            --accent-color: #90e0ef;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f8f9fa;
+            --text-color: #2c3e50;
+            --card-bg: #ffffff;
+            --skill-bg: #e9ecef;
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.3;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            font-size: 9pt;
+        }
+
+        .page-container {
+            width: 210mm;
+            height: 297mm;
+            margin: 20px auto;
+            background-color: var(--card-bg);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .resume-content {
+            padding: 12mm 15mm;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 22pt;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .subtitle {
+            color: var(--secondary-color);
+            font-size: 12pt;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 8pt;
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            margin-right: 4px;
+            width: 10px;
+        }
+
+        .summary {
+            text-align: justify;
+            font-size: 10pt;
+            line-height: 1.3;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 60% 38%;
+            gap: 2%;
+            height: calc(100% - 120px);
+        }
+
+        .section {
+            margin-bottom: 12px;
+            break-inside: avoid;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 12pt;
+            font-weight: 600;
+            margin-bottom: 8px;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 2px;
+        }
+
+        .job {
+            margin-bottom: 10px;
+            break-inside: avoid;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 3px;
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: var(--secondary-color);
+            font-size: 10pt;
+        }
+
+        .company {
+            font-weight: 500;
+            color: var(--primary-color);
+            font-size: 9pt;
+        }
+
+        .date {
+            color: #666;
+            font-style: italic;
+            font-size: 8pt;
+            white-space: nowrap;
+        }
+
+        .job-description ul {
+            padding-left: 12px;
+            margin-top: 2px;
+        }
+
+        .job-description li {
+            margin-bottom: 1px;
+            font-size: 9pt;
+            line-height: 1.2;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4px;
+            margin-top: 5px;
+        }
+
+        .skill-category {
+            background-color: var(--skill-bg);
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 8pt;
+            border-left: 2px solid var(--accent-color);
+        }
+
+        .skill-category strong {
+            color: var(--secondary-color);
+            font-size: 9pt;
+        }
+
+        .education-item {
+            margin-bottom: 8px;
+            break-inside: avoid;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2px;
+        }
+
+        .institution {
+            font-weight: 600;
+            color: var(--secondary-color);
+            font-size: 9pt;
+        }
+
+        .degree {
+            font-size: 8pt;
+            color: var(--text-color);
+            margin-bottom: 2px;
+        }
+
+        .languages {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .language-item {
+            text-align: center;
+            background-color: var(--skill-bg);
+            padding: 4px;
+            border-radius: 3px;
+        }
+
+        .language-name {
+            font-weight: 600;
+            color: var(--secondary-color);
+            font-size: 9pt;
+        }
+
+        .language-level {
+            font-size: 8pt;
+            color: #666;
+        }
+
+        .specializations ul {
+            padding-left: 12px;
+        }
+
+        .specializations li {
+            font-size: 8pt;
+            margin-bottom: 2px;
+            line-height: 1.2;
+        }
+
+        /* Control buttons */
+        .controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .control-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 9pt;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .control-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        @media print {
+            .controls {
+                display: none !important;
+            }
+            
+            body {
+                background: white !important;
+                color: #000 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            .page-container {
+                box-shadow: none !important;
+                margin: 0 !important;
+                width: 100% !important;
+                height: 100vh !important;
+            }
+            
+            .resume-content {
+                padding: 10mm 12mm !important;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .page-container {
+                width: 100%;
+                height: auto;
+                margin: 10px;
+                box-shadow: none;
+            }
+            
+            .resume-content {
+                padding: 15px;
+                height: auto;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
