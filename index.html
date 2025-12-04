@@ -18,9 +18,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <meta name="author" content="Ali Cheikh">
     <meta property="og:site_name" content="Future Best CTO">
     <meta http-equiv="Content-Language" content="en">
@@ -77,7 +77,7 @@
                 <div class="h-shape"></div>
                 <div class="image">
                     <!-- <img src="img/aliii.png" alt="Picture didn't loadhero"> --> 
-                    <img src="img/hero.gif" alt="//s5.ezgif.com/tmp/ezgif-5-99cfd08ea1.gif">
+                    <img src="img/hero.gif" alt="Animated hero graphic" loading="lazy" decoding="async">
                     <div class="pixelart-to-css"><br></div>
                     <p class="tt" style="display: none;">Hey i'd rather die than use PHP</p>
                  </div>
@@ -398,7 +398,7 @@
                         <li><strong>Community Growth:</strong> Actively contribute to Tunisia's tech ecosystem through mentorship and collaboration.</li>
                     </ul>
                 </p>
-                <center><img src="https://i.pinimg.com/originals/fe/b6/b6/feb6b68d5ffc34b5f5f03f72b035f04e.gif" alt="funny gif" width="85%"></center>
+                <center><img src="https://i.pinimg.com/originals/fe/b6/b6/feb6b68d5ffc34b5f5f03f72b035f04e.gif" alt="Funny coding gif" width="85%" loading="lazy" decoding="async"></center>
                 <!-- download cv -->
                 <div class="btn-con" style="margin-top: 1rem; display: flex; justify-content: center;">
                     <a style="background-color: var(--color-grey-4);opacity: 99%;" href="#" class="main-btn" onclick="window.location.href = Math.random() < 0.5 ? 'cv.html' : 'cv404.html';">
@@ -980,7 +980,7 @@
                                 <a href="https://github.com/Ali-Cheikh" target="_blank">
                                     <i class="fab fa-github"></i>
                                 </a>
-                                <a href="https:/linkedin/in/ali-cheikh" target="_blank">
+                                <a href="https://www.linkedin.com/in/ali-cheikh" target="_blank" rel="noopener noreferrer">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
                                 <a href="https://bit.ly/ACH-WhatsApp" target="_blank">
@@ -1047,8 +1047,8 @@
         <i class="fas fa-adjust"></i>
     </div>
 
-    <script src="script.js"></script>
-    <script src="app.js"></script>
+    <script src="script.js" defer></script>
+    <script src="app.js" defer></script>
 
     <script type="text/javascript">
 
@@ -1061,10 +1061,10 @@
 
     </script>
     <script type="text/javascript" src="https://client.crisp.chat/l.js" async></script>
-    <script src="sweetalert2.min.js"></script>
+    <!-- Removed local SweetAlert duplicate; CDN already included -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-    <script src="sweetalert2/dist/sweetalert2.min.js"></script>
+    <!-- Removed duplicate SweetAlert include to avoid conflicts -->
 <!-- Code injected by live-server -->
 <script>
 	// <![CDATA[  <-- For SVG support
