@@ -1,12 +1,12 @@
  :root,
         [data-theme="dark"] {
-            --bg-color: #121212;
+            --bg-color: #191d2b;
             --text-color: #f9f9f9;
             --card-bg: #1e1e1e;
-            --skill-bg: #2a2a2a;
-            --primary-color: #00b4d8;
-            --secondary-color: #0077b6;
-            --accent-color: #90e0ef;
+            --skill-bg: #2a2e35;
+            --primary-color: #a98114;
+            --secondary-color: #da3e3e;
+            --accent-color: #a98114;
         }
 
         [data-theme="light"] {
@@ -44,7 +44,7 @@
         }
 
         .resume-content {
-            padding: 12mm 15mm;
+            padding: 8mm 10mm;
             height: 100%;
             overflow: hidden;
         }
@@ -247,32 +247,40 @@
             right: 20px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
             z-index: 1000;
         }
 
         .control-btn {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background-color: rgba(169, 129, 20, 0.6);
             color: white;
             border: none;
-            padding: 10px 14px;
-            border-radius: 6px;
+            padding: 12px 18px;
+            border-radius: 8px;
             cursor: pointer;
-            font-weight: 600;
-            font-size: 9pt;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            font-size: 10pt;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .control-btn:hover {
+            background-color: rgba(218, 62, 62, 0.7);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(218, 62, 62, 0.4);
         }
 
         .control-btn:disabled {
-            opacity: 0.7;
+            opacity: 0.5;
             cursor: not-allowed;
             transform: none;
+        }
+
+        .control-btn i {
+            margin-right: 6px;
         }
 
         @media print {

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
     <style>
         :root,
         [data-theme="dark"] {
@@ -266,12 +266,12 @@
             <h1 style="font-size: 28px; margin-bottom: 5px;">ALI CHEIKH</h1>
             <h2 style="font-size: 20px; margin: 5px 0;">Full Stack Web Developer</h2>
             <div class="contact-info" style="font-size: 12px; gap: 10px;">
-                <a href="mailto:contact@alicheikh.tn"><i class="fas fa-envelope"></i> contact@alicheikh.tn</a>
-                <a href="tel:+21690725434"><i class="fas fa-phone"></i> +216 90 725 434</a>
-                <a href="https://www.ali-cheikh.com/"><i class="fas fa-globe"></i> ali-cheikh.com</a>
-                <a href="https://linkedin.com/in/ali-cheikh"><i class="fab fa-linkedin"></i>
+                <a href="mailto:contact@alicheikh.tn" aria-label="Email Ali"><i class="fas fa-envelope" aria-hidden="true"></i> contact@alicheikh.tn</a>
+                <a href="tel:+21690725434" aria-label="Call Ali"><i class="fas fa-phone" aria-hidden="true"></i> +216 90 725 434</a>
+                <a href="https://www.ali-cheikh.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit ali-cheikh.com"><i class="fas fa-globe" aria-hidden="true"></i> ali-cheikh.com</a>
+                <a href="https://www.linkedin.com/in/ali-cheikh" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i>
                     linkedin.com/in/ali-cheikh</a>
-                <a href="https://discord.com/users/679042699277369365"><i class="fab fa-discord"></i> Discord</a>
+                <a href="https://discord.com/users/679042699277369365" target="_blank" rel="noopener noreferrer" aria-label="Visit Discord profile"><i class="fab fa-discord" aria-hidden="true"></i> Discord</a>
             </div>
         </header>
 
@@ -467,12 +467,10 @@
         const themeToggle = document.getElementById('themeToggle');
         const bodyElement = document.body;
 
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            bodyElement.setAttribute('data-theme', savedTheme);
-            updateThemeIcon(savedTheme);
-        }
+        // Check for saved theme preference (default: dark)
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        bodyElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
 
         themeToggle.addEventListener('click', () => {
             const currentTheme = bodyElement.getAttribute('data-theme');
@@ -513,7 +511,7 @@
             setTimeout(() => {
                 const element = document.getElementById('resumeContent');
                 const opt = {
-                    margin: [10, 15, 15, 15], // top, left, bottom, right
+                    margin: [10, 10, 10, 10], // top, left, bottom, right
                     filename: 'Ali_Cheikh_Resume.pdf',
                     image: { type: 'jpeg', quality: 1 },
                     html2canvas: {
@@ -525,12 +523,7 @@
                     jsPDF: {
                         unit: 'mm',
                         format: 'a4',
-                        orientation: 'portrait',
-                        pageSize: 'A4',
-                        pageOrientation: 'portrait',
-                        pageWidth: 210,
-                        pageHeight: 297,
-                        compress: true,
+                        orientation: 'portrait'
                     }
                 };
                 // Generate PDF
