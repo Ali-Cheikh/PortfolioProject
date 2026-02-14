@@ -1,542 +1,534 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Cheikh - Full Stack Developer</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+    <title>Resume Builder Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root,
-        [data-theme="dark"] {
-            --bg-color: #121212;
-            --text-color: #f9f9f9;
-            --card-bg: #1e1e1e;
-            --skill-bg: #2a2a2a;
-            --primary-color: hsl(165, 91%, 42%);
-            --secondary-color: #10c8e0;
-            /* Darker green */
-        }
-
-        [data-theme="light"] {
-            --bg-color: #f9f9f9;
-            --text-color: #000;
-            --card-bg: white;
-            --skill-bg: #ecf0f1;
-            --primary-color: #2c3e50;
-            /* Darker blue for better contrast */
-            --secondary-color: #3498db;
-        }
-
-        body {
-            font-family: 'Poppins', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: var(--bg-color);
-        }
-
-        .resume-container {
-            background-color: var(--card-bg);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            color: var(--text-color);
-            position: relative;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 20px;
-        }
-
-        h1 {
-            color: var(--primary-color);
-            margin-bottom: 5px;
-            font-size: 2.5em;
-        }
-
-        h2 {
-            color: var(--secondary-color);
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-            margin-top: 25px;
-        }
-
-        h3 {
-            color: var(--dark-color);
-            margin-bottom: 5px;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .contact-info a {
-            color: var(--primary-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-info a:hover {
-            color: var(--secondary-color);
-        }
-
-        .contact-info i {
-            margin-right: 5px;
-        }
-
-        .section {
-            margin-bottom: 30px;
-        }
-
-        .job,
-        .education-item {
-            margin-bottom: 20px;
-        }
-
-        .job-title,
-        .education-title {
-            display: flex;
-            justify-content: space-between;
-            font-weight: bold;
-        }
-
-        .date {
-            color: #666;
-            font-style: italic;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 5px;
-        }
-
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill {
-            background-color: var(--skill-bg);
-            padding: 5px 10px;
-            border-radius: 3px;
-            font-size: 0.9em;
-        }
-
-        .pdf-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: rgba(255, 0, 0, 0.507);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            backdrop-filter: blur(5px);
-            filter: blur(0.5px);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            z-index: 100;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            bottom: 60px;
-            right: 20px;
-            background-color: var(--dark-color);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            backdrop-filter: blur(5px);
-            filter: blur(0.5px);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            z-index: 100;
-        }
-
-        .pdf-button:hover {
-            background-color: #ee6151;
-        }
-
         @media print {
-            .pdf-button {
-                display: none;
+            body { 
+                margin: 0;
+                background: white !important;
             }
-
-            body {
-                background-color: white;
-                padding: 0;
+            .no-print { display: none !important; }
+            .resume-container { margin-left: 0 !important; }
+            #resume-content { 
+                box-shadow: none !important;
+                padding: 0.5in !important;
+                max-width: 100% !important;
             }
-
-            .resume-container {
-                box-shadow: none;
-                padding: 0;
+            input, textarea { 
+                border: none !important; 
+                outline: none !important;
+                background: transparent !important;
             }
+            button { display: none !important; }
+        }
+        
+        input:focus, textarea:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
         }
 
-        .two-column {
-            display: flex;
-            gap: 30px;
+        .editable-input {
+            background: transparent;
+            border: 0;
+            outline: none;
+            width: 100%;
         }
 
-        .column {
-            flex: 1;
-        }
-
-        .certifications {
-            margin-top: 10px;
-        }
-
-        .certification {
-            margin-bottom: 10px;
-        }
-
-        .two-column {
-            display: flex;
-            gap: 15mm;
-            /* Reduced gap */
-            margin-top: 10mm;
-        }
-
-        /* Adjust font sizes for better fit */
-        h1 {
-            font-size: 24pt;
-        }
-
-        h2 {
-            font-size: 14pt;
-            margin-top: 15px;
-            margin-bottom: 10px;
-        }
-
-        p,
-        li {
-            font-size: 10pt;
-            line-height: 1.4;
-        }
-
-        /* Adjust spacing between sections */
-        .section {
-            margin-bottom: 15px;
-        }
-
-        /* Adjust skills container */
-        .skills-container {
-            gap: 8px;
-        }
-
-        .skill {
-            font-size: 9pt;
-            padding: 3px 8px;
+        .editable-input:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+            border-radius: 4px;
+            padding: 0 8px;
         }
     </style>
-    
 </head>
+<body class="min-h-screen bg-gray-100">
+    <!-- Top Controls -->
+    <div id="topBar" class="no-print fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-6 py-3 flex items-center justify-between shadow-sm">
+        <h1 class="text-xl font-bold text-gray-900">Resume Builder Pro</h1>
+        <div class="flex gap-2">
+            <button onclick="toggleEditMode()" id="editModeBtn" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white transition-colors">
+                <i class="fas fa-edit"></i> Preview Mode
+            </button>
+            <button onclick="saveResume()" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 text-white transition-colors">
+                <i class="fas fa-save"></i> Save
+            </button>
+            <button onclick="loadResume()" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white transition-colors">
+                <i class="fas fa-upload"></i> Load
+            </button>
+            <button onclick="downloadPDF()" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500 hover:bg-purple-600 text-white transition-colors">
+                <i class="fas fa-download"></i> Download PDF
+            </button>
+            <button onclick="toggleTheme()" id="themeBtn" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-900 transition-colors">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </div>
 
-<body>
-    <button class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon" style="filter:blur(0)"></i>
-    </button>
-
-    <button class="pdf-button" id="pdfButton">
-        <i class="fas fa-file-pdf"></i> Download PDF
-    </button>
-
-    <div class="resume-container" id="resumeContent" style="max-width: 210mm; margin: 0 auto;">
-        <header style="margin-bottom: 15px; padding-bottom: 15px;">
-            <h1 style="font-size: 28px; margin-bottom: 5px;">ALI CHEIKH</h1>
-            <h2 style="font-size: 20px; margin: 5px 0;">Full Stack Web Developer</h2>
-            <div class="contact-info" style="font-size: 12px; gap: 10px;">
-                <a href="mailto:contact@alicheikh.tn" aria-label="Email Ali"><i class="fas fa-envelope" aria-hidden="true"></i> contact@alicheikh.tn</a>
-                <a href="tel:+21690725434" aria-label="Call Ali"><i class="fas fa-phone" aria-hidden="true"></i> +216 90 725 434</a>
-                <a href="https://www.ali-cheikh.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit ali-cheikh.com"><i class="fas fa-globe" aria-hidden="true"></i> ali-cheikh.com</a>
-                <a href="https://www.linkedin.com/in/ali-cheikh" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i>
-                    linkedin.com/in/ali-cheikh</a>
-                <a href="https://discord.com/users/679042699277369365" target="_blank" rel="noopener noreferrer" aria-label="Visit Discord profile"><i class="fab fa-discord" aria-hidden="true"></i> Discord</a>
-            </div>
-        </header>
-
-        <section class="section" style="margin-bottom: 15px;">
-            <h2 style="font-size: 16px; margin-bottom: 8px;">PROFESSIONAL SUMMARY</h2>
-            <p style="font-size: 11px; line-height: 1.4;">Passionate Full-Stack Developer with 5+ years of hands-on
-                experience crafting clean, efficient web solutions. Familiar with a wide range of programming utilities
-                and languages. Knowledgeable of backend and frontend development requirements. Proficient in bridging
-                vanilla web fundamentals. Handles any part of the process with ease. Collaborative team player with
-                excellent technical abilities offering years of related experience.</p>
-        </section>
-
-        <div class="two-column" style="column-gap: 15mm;">
-            <div class="column" style="font-size: 11px">
-                <section class="section">
-                    <h2 style="font-size: 16px; margin-bottom: 8px;">EDUCATION</h2>
-                    <div class="education-item">
-                        <div class="education-title">
-                            <span>Lycée Fathel Ben Achour - Sfax, Tunisia</span>
-                            <span class="date">Expected in 06/2025</span>
-                        </div>
-                        <p>High School Diploma | Field of Study: Computer Science</p>
-                    </div>
-
-                    <div class="education-item">
-                        <div class="education-title">
-                            <span>Online Institutions & Platforms</span>
-                            <span class="date">01/2018 – Present</span>
-                        </div>
-                        <p>Self-Taught Developer</p>
-                        <ul>
-                            <li>Advanced Web Development resources and certifications collected from online courses
-                                (Udemy, Coursera, Azure Learn, Microsoft Learn, Google Developer Programme, Discord
-                                Communities, YouTube, and others)</li>
-                            <li>Attended various Events, Camps, and Hackathons, winning 6 out of many attended</li>
-                            <li>Focus: Full-Stack Development, Performance Optimization, Automation, Design, Animation,
-                                Ethical Hacking</li>
-                            <li>Member of MTC, 2022 to 2024</li>
-                        </ul>
-                    </div>
-
-                    <div class="education-item">
-                        <div class="education-title">
-                            <span>GoMyCode - Sfax, Tunisia</span>
-                            <span class="date">01/2018 – 01/2020</span>
-                        </div>
-                        <p>Full Stack JS: Web Development Foundations</p>
-                        <ul>
-                            <li>Web Architecture, Databases, and Web Development fundamentals</li>
-                            <li>Created websites using Content Management Systems (CMS)</li>
-                            <li>Git basics, GitHub setup, and project workflow</li>
-                            <li>Front-End Development Basics</li>
-                            <li>JavaScript Fundamentals & Algorithms</li>
-                            <li>ReactJS & Advanced JavaScript</li>
-                            <li>React, State Management, and Back-End Integration</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section class="section">
-                    <h2 style="font-size: 16px; margin-bottom: 8px;">EXPERIENCE</h2>
-                    <div class="job">
-                        <div class="job-title">
-                            <span><strong>Lead Full Stack Developer</strong> | Lingo-Land.net - Sfax, Tunisia</span>
-                            <span class="date">01/2022 – Current</span>
-                        </div>
-                        <ul>
-                            <li>Built a full-stack platform delivering learning resources and an E-selling page for
-                                book-courses</li>
-                            <li>Optimized page load times by 40% through code splitting and caching strategies</li>
-                            <li>Integrated interactive features for real-time language practice</li>
-                            <li>Designed robust database schemas supporting security and email marketing</li>
-                        </ul>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-title">
-                            <span><strong>Co-Work Developer</strong> | i-startup.tn</span>
-                            <span class="date">01/2021 – Current</span>
-                        </div>
-                        <ul>
-                            <li>Collaborated on backend tools and automation scripts for customer engagement</li>
-                            <li>Streamlined internal workflows using Google Apps Script and Google Sheets</li>
-                            <li>Maintained table database for easier management access and security</li>
-                            <li>Translated client requirements into technical specifications</li>
-                        </ul>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-title">
-                            <span><strong>Freelance Web Developer</strong></span>
-                            <span class="date">01/2019 – Current</span>
-                        </div>
-                        <ul>
-                            <li>Delivered 50+ client projects including static sites, web apps, and automation tools
-                            </li>
-                            <li>Crafted custom portfolios with vanilla JS/HTML/CSS, avoiding CMS bloat</li>
-                        </ul>
-                    </div>
-                </section>
+    <div class="flex pt-16">
+        <!-- Sidebar -->
+        <div id="sidebar" class="no-print fixed left-0 top-16 bottom-0 w-72 bg-white border-r border-gray-200 p-4 overflow-y-auto">
+            <div class="mb-6">
+                <h2 class="text-xs font-bold mb-3 text-gray-500 uppercase tracking-wider">Left Column Components</h2>
+                <div class="space-y-2">
+                    <button onclick="addSection('sectionHeading', 'left')" class="w-full text-left px-3 py-2.5 rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-900 transition-colors flex items-center gap-2 text-sm">
+                        <i class="fas fa-plus text-xs"></i> 📋 Section Heading
+                    </button>
+                    <button onclick="addSection('job', 'left')" class="w-full text-left px-3 py-2.5 rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-900 transition-colors flex items-center gap-2 text-sm">
+                        <i class="fas fa-plus text-xs"></i> 💼 Job Experience
+                    </button>
+                    <button onclick="addSection('education', 'left')" class="w-full text-left px-3 py-2.5 rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-900 transition-colors flex items-center gap-2 text-sm">
+                        <i class="fas fa-plus text-xs"></i> 🎓 Education
+                    </button>
+                </div>
             </div>
 
-            <div class="column">
-                <section class="section">
-                    <h2 style="font-size: 16px; margin-bottom: 8px;">SKILLS</h2>
-                    <div class="skills-container">
-                        <span class="skill">HTML5</span>
-                        <span class="skill">CSS3/Sass</span>
-                        <span class="skill">JavaScript</span>
-                        <span class="skill">Node.js</span>
-                        <span class="skill">Python</span>
-                        <span class="skill">React</span>
-                        <span class="skill">Cross-Browser Optimization</span>
-                        <span class="skill">PHP</span>
-                        <span class="skill">SQL</span>
-                        <span class="skill">WAMP</span>
-                        <span class="skill">Cloudflare</span>
-                        <span class="skill">CDN</span>
-                        <span class="skill">DDoS Protection</span>
-                        <span class="skill">DNS Management</span>
-                        <span class="skill">Workers</span>
-                        <span class="skill">Git/GitHub</span>
-                        <span class="skill">Actions and Deployment</span>
-                        <span class="skill">REST APIs</span>
-                        <span class="skill">API Development</span>
-                        <span class="skill">Google Apps Script</span>
-                        <span class="skill">Directory Architecture</span>
-                        <span class="skill">Security</span>
-                        <span class="skill">Automation</span>
-                        <span class="skill">UI/UX Design</span>
-                        <span class="skill">Animation</span>
-                        <span class="skill">Ethical Hacking</span>
-                    </div>
-                </section>
-                <br>
+            <div>
+                <h2 class="text-xs font-bold mb-3 text-gray-500 uppercase tracking-wider">Right Column Components</h2>
+                <div class="space-y-2">
+                    <button onclick="addSection('sectionHeading', 'right')" class="w-full text-left px-3 py-2.5 rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-900 transition-colors flex items-center gap-2 text-sm">
+                        <i class="fas fa-plus text-xs"></i> 📋 Section Heading
+                    </button>
+                    <button onclick="addSection('skillCategory', 'right')" class="w-full text-left px-3 py-2.5 rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-900 transition-colors flex items-center gap-2 text-sm">
+                        <i class="fas fa-plus text-xs"></i> ⚡ Skill Category
+                    </button>
+                    <button onclick="addSection('project', 'right')" class="w-full text-left px-3 py-2.5 rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-900 transition-colors flex items-center gap-2 text-sm">
+                        <i class="fas fa-plus text-xs"></i> 📊 Project
+                    </button>
+                    <button onclick="addSection('languages', 'right')" class="w-full text-left px-3 py-2.5 rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-900 transition-colors flex items-center gap-2 text-sm">
+                        <i class="fas fa-plus text-xs"></i> 🌍 Languages
+                    </button>
+                </div>
+            </div>
 
-                <section class="section">
-                    <h2 style="font-size: 16px; margin-bottom: 8px;">CERTIFICATIONS</h2>
-                    <div class="certifications">
-                        <div class="certification">
-                            <strong>Advanced Web Development</strong>
-                            <p>Various platforms (Udemy, Coursera, Microsoft Learn, Google Developer Program)</p>
+            <div class="mt-6 p-3 rounded-lg bg-blue-50 text-xs">
+                <p class="text-gray-700">
+                    <strong>💡 Tips:</strong><br>
+                    • Click text to edit<br>
+                    • Use arrows to reorder<br>
+                    • Click trash to delete<br>
+                    • Toggle Preview Mode to see final output
+                </p>
+            </div>
+        </div>
+
+        <!-- Main Resume Area -->
+        <div id="resumeContainer" class="resume-container ml-72 flex-1 p-8">
+            <div class="max-w-[850px] mx-auto">
+                <div id="resume-content" class="bg-white shadow-2xl p-12" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; line-height: 1.5;">
+                    <!-- Header -->
+                    <header class="text-center mb-6 pb-6 border-b-2 border-gray-800">
+                        <input id="name" type="text" value="Ali Cheikh" class="editable-input text-3xl font-bold mb-2 text-center" placeholder="Your Name">
+                        <input id="subtitle" type="text" value="Tunisian Entrepreneur | Community Innovator | Sustainable Tech Builder" class="editable-input text-sm mb-4 text-center" placeholder="Your Subtitle">
+                        
+                        <div class="flex justify-center gap-6 text-xs text-gray-700 flex-wrap">
+                            <span>✉️ <input id="email" type="email" value="contact@ali-cheikh.com" class="editable-input inline w-40" placeholder="email@example.com"></span>
+                            <span>📱 <input id="phone" type="tel" value="+216 90 725 434" class="editable-input inline w-32" placeholder="+1 234 567 890"></span>
+                            <span>🌐 <input id="website" type="text" value="ali-cheikh.com" class="editable-input inline w-32" placeholder="website.com"></span>
+                            <span>💼 <input id="linkedin" type="text" value="LinkedIn" class="editable-input inline w-24" placeholder="LinkedIn"></span>
                         </div>
-                        <div class="certification">
-                            <strong>Full Stack JS Development</strong>
-                            <p>GoMyCode Certification (2020)</p>
+                    </header>
+
+                    <!-- Summary -->
+                    <div class="mb-6">
+                        <textarea id="summary" class="editable-input text-sm resize-none w-full" rows="3" placeholder="Write your professional summary...">Tunisian entrepreneur and developer building practical tech solutions for community impact. Selected for Live The Residency – Delta (top 15 of 1,500 applicants). Co-founded BlooLabb, an AI-powered learning platform for Tunisian youth. Experienced in creating sustainable solutions for local businesses and education initiatives across Tunisia.</textarea>
+                    </div>
+
+                    <!-- Two Column Layout -->
+                    <div class="grid grid-cols-2 gap-8">
+                        <!-- Left Column -->
+                        <div id="leftColumn">
+                            <div class="text-center py-8 text-gray-400 text-sm">
+                                Add sections from sidebar
+                            </div>
+                        </div>
+
+                        <!-- Right Column -->
+                        <div id="rightColumn">
+                            <div class="text-center py-8 text-gray-400 text-sm">
+                                Add sections from sidebar
+                            </div>
                         </div>
                     </div>
-                </section>
-
-                <section class="section">
-                    <h2 style="font-size: 16px; margin-bottom: 8px;">PROJECTS & ACHIEVEMENTS</h2>
-                    <ul>
-                        <li>6 Hackathon wins from numerous competitions attended</li>
-                        <li>Developed multiple high-performance web applications</li>
-                        <li>Created automation tools that improved workflow efficiency</li>
-                        <li>Built custom solutions for diverse client needs</li>
-                    </ul>
-                </section>
-
-                <section class="section">
-                    <h2 style="font-size: 16px; margin-bottom: 8px;">OPEN TO ROLES</h2>
-                    <p>Seeking opportunities to leverage full-stack skills to build fast, functional, and future-proof
-                        solutions.</p>
-                </section>
-
-                <section class="section">
-                    <h2 style="font-size: 16px; margin-bottom: 8px;">PASSIONS & GOALS</h2>
-                    <ul>
-                        <li><strong>Expand Expertise:</strong> Continuously learning new tools to build impactful,
-                            ethical tech</li>
-                        <li><strong>Solve Real Problems:</strong> Automating workflows and refining UI to create
-                            meaningful solutions</li>
-                        <li><strong>Community Growth:</strong> Contributing to Tunisia's tech ecosystem through
-                            mentorship</li>
-                    </ul>
-                </section>
-
-                <section class="section">
-                    <h2 style="font-size: 16px; margin-bottom: 8px;">LANGUAGES</h2>
-                    <ul>
-                        <li><strong>English:</strong> Full Professional</li>
-                        <li><strong>Arabic:</strong> Native or Bilingual</li>
-                        <li><strong>French:</strong> Limited Working</li>
-                    </ul>
-                </section>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const bodyElement = document.body;
+        let editMode = true;
+        let theme = 'light';
+        let resumeData = {
+            leftSections: [],
+            rightSections: []
+        };
 
-        // Check for saved theme preference (default: dark)
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        bodyElement.setAttribute('data-theme', savedTheme);
-        updateThemeIcon(savedTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = bodyElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            // Smooth transition for color change
-            bodyElement.style.transition = 'background-color 0.3s ease, color 0.3s ease';
-
-
-            bodyElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-
-        function updateThemeIcon(theme) {
-            const icon = themeToggle.querySelector('i');
-            icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-            icon.style.color = theme === 'light' ? '#2c3e50' : '#f39c12'; // Change icon color based on theme
-            icon.style.transition = 'color 0.3s ease'; // Smooth transition for color change
+        function toggleEditMode() {
+            editMode = !editMode;
+            const btn = document.getElementById('editModeBtn');
+            const sidebar = document.getElementById('sidebar');
+            const container = document.getElementById('resumeContainer');
+            
+            if (editMode) {
+                btn.innerHTML = '<i class="fas fa-edit"></i> Preview Mode';
+                btn.className = 'flex items-center gap-2 px-4 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white transition-colors';
+                sidebar.style.display = 'block';
+                container.classList.add('ml-72');
+            } else {
+                btn.innerHTML = '<i class="fas fa-edit"></i> Edit Mode';
+                btn.className = 'flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-500 hover:bg-gray-600 text-white transition-colors';
+                sidebar.style.display = 'none';
+                container.classList.remove('ml-72');
+            }
+            renderResume();
         }
 
-        // PDF Generation Functionality
-        document.getElementById('pdfButton').addEventListener('click', function () {
-            if (typeof html2pdf === 'undefined') {
-                alert('html2pdf.js is not loaded. Please check your script tag or reload the page.');
+        function toggleTheme() {
+            theme = theme === 'light' ? 'dark' : 'light';
+            const btn = document.getElementById('themeBtn');
+            if (theme === 'dark') {
+                document.body.classList.add('bg-gray-900');
+                document.body.classList.remove('bg-gray-100');
+                btn.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                document.body.classList.add('bg-gray-100');
+                document.body.classList.remove('bg-gray-900');
+                btn.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+
+        function downloadPDF() {
+            const originalEditMode = editMode;
+            if (editMode) {
+                editMode = false;
+                renderResume();
+            }
+            setTimeout(() => {
+                window.print();
+                setTimeout(() => {
+                    if (originalEditMode) {
+                        editMode = true;
+                        renderResume();
+                    }
+                }, 500);
+            }, 300);
+        }
+
+        function saveResume() {
+            const data = {
+                name: document.getElementById('name').value,
+                subtitle: document.getElementById('subtitle').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                website: document.getElementById('website').value,
+                linkedin: document.getElementById('linkedin').value,
+                summary: document.getElementById('summary').value,
+                leftSections: resumeData.leftSections,
+                rightSections: resumeData.rightSections
+            };
+            localStorage.setItem('resumeData', JSON.stringify(data));
+            alert('✅ Resume saved!');
+        }
+
+        function loadResume() {
+            const saved = localStorage.getItem('resumeData');
+            if (saved) {
+                const data = JSON.parse(saved);
+                document.getElementById('name').value = data.name || '';
+                document.getElementById('subtitle').value = data.subtitle || '';
+                document.getElementById('email').value = data.email || '';
+                document.getElementById('phone').value = data.phone || '';
+                document.getElementById('website').value = data.website || '';
+                document.getElementById('linkedin').value = data.linkedin || '';
+                document.getElementById('summary').value = data.summary || '';
+                resumeData.leftSections = data.leftSections || [];
+                resumeData.rightSections = data.rightSections || [];
+                renderResume();
+                alert('✅ Resume loaded!');
+            } else {
+                alert('No saved resume found!');
+            }
+        }
+
+        function addSection(type, column) {
+            const templates = {
+                sectionHeading: {
+                    type: 'sectionHeading',
+                    id: Date.now(),
+                    icon: '💼',
+                    title: 'Section Title'
+                },
+                job: {
+                    type: 'job',
+                    id: Date.now(),
+                    title: 'Job Title',
+                    company: 'Company Name',
+                    date: '2024 – Present',
+                    bullets: ['Key achievement or responsibility']
+                },
+                education: {
+                    type: 'education',
+                    id: Date.now(),
+                    institution: 'School Name',
+                    degree: 'Degree Name',
+                    date: '2024'
+                },
+                project: {
+                    type: 'project',
+                    id: Date.now(),
+                    title: 'Project Name',
+                    date: '2024',
+                    description: 'Project description goes here'
+                },
+                skillCategory: {
+                    type: 'skillCategory',
+                    id: Date.now(),
+                    category: 'Category',
+                    skills: 'Skill 1, Skill 2, Skill 3'
+                },
+                languages: {
+                    type: 'languages',
+                    id: Date.now(),
+                    languages: [
+                        { name: 'English', level: 'Professional' },
+                        { name: 'Arabic', level: 'Native' }
+                    ]
+                }
+            };
+
+            const targetArray = column === 'left' ? 'leftSections' : 'rightSections';
+            resumeData[targetArray].push(templates[type]);
+            renderResume();
+        }
+
+        function deleteSection(column, id) {
+            const targetArray = column === 'left' ? 'leftSections' : 'rightSections';
+            resumeData[targetArray] = resumeData[targetArray].filter(s => s.id !== id);
+            renderResume();
+        }
+
+        function moveSection(column, id, direction) {
+            const targetArray = column === 'left' ? 'leftSections' : 'rightSections';
+            const sections = resumeData[targetArray];
+            const index = sections.findIndex(s => s.id === id);
+            
+            if ((direction === 'up' && index === 0) || (direction === 'down' && index === sections.length - 1)) {
                 return;
             }
-            // Reset scroll position and theme for PDF generation
-            window.scrollTo(0, 0);
-            bodyElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
+            
+            const newIndex = direction === 'up' ? index - 1 : index + 1;
+            [sections[index], sections[newIndex]] = [sections[newIndex], sections[index]];
+            renderResume();
+        }
 
-            // Show generating message
-            const originalText = this.innerHTML;
-            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
-            this.disabled = true;
+        function updateSectionField(column, id, field, value) {
+            const targetArray = column === 'left' ? 'leftSections' : 'rightSections';
+            const section = resumeData[targetArray].find(s => s.id === id);
+            if (section) {
+                section[field] = value;
+            }
+        }
 
-            // hold a bit then carry with the rest
-            setTimeout(() => {
-                const element = document.getElementById('resumeContent');
-                const opt = {
-                    margin: [10, 10, 10, 10], // top, left, bottom, right
-                    filename: 'Ali_Cheikh_Resume.pdf',
-                    image: { type: 'jpeg', quality: 1 },
-                    html2canvas: {
-                        scale: 2,
-                        useCORS: true,
-                        scrollY: 0,
-                        windowHeight: document.documentElement.scrollHeight,
-                    },
-                    jsPDF: {
-                        unit: 'mm',
-                        format: 'a4',
-                        orientation: 'portrait'
-                    }
-                };
-                // Generate PDF
-                html2pdf().set(opt).from(element).save().then(() => {
-                    this.innerHTML = originalText;
-                    this.disabled = false;
-                });
-            }, 1000);
+        function addBullet(column, id) {
+            const targetArray = column === 'left' ? 'leftSections' : 'rightSections';
+            const section = resumeData[targetArray].find(s => s.id === id);
+            if (section && section.bullets) {
+                section.bullets.push('New bullet point');
+                renderResume();
+            }
+        }
 
+        function updateBullet(column, id, index, value) {
+            const targetArray = column === 'left' ? 'leftSections' : 'rightSections';
+            const section = resumeData[targetArray].find(s => s.id === id);
+            if (section && section.bullets) {
+                section.bullets[index] = value;
+            }
+        }
 
+        function renderSection(section, column, index) {
+            const isEditing = editMode;
+            let html = `<div class="relative group ${isEditing ? 'hover:bg-gray-50 rounded-lg p-2 -mx-2' : ''} mb-6">`;
+            
+            if (isEditing) {
+                html += `
+                    <div class="absolute -left-10 top-2 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col gap-1">
+                        <button onclick="moveSection('${column}', ${section.id}, 'up')" class="p-1 rounded hover:bg-gray-200 text-gray-600">
+                            <i class="fas fa-chevron-up text-xs"></i>
+                        </button>
+                        <button onclick="moveSection('${column}', ${section.id}, 'down')" class="p-1 rounded hover:bg-gray-200 text-gray-600">
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                    </div>
+                    <button onclick="deleteSection('${column}', ${section.id})" class="absolute -right-2 -top-1 opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded hover:bg-red-100 text-red-500">
+                        <i class="fas fa-trash text-xs"></i>
+                    </button>
+                `;
+            }
 
-        });
+            if (section.type === 'sectionHeading') {
+                html += `
+                    <div class="mb-4 pb-2 border-b-2 border-gray-800">
+                        <h2 class="text-lg font-bold flex items-center gap-2">
+                            ${isEditing ? `
+                                <input type="text" value="${section.icon}" onchange="updateSectionField('${column}', ${section.id}, 'icon', this.value)" class="w-8 bg-transparent border-0 outline-none focus:ring-2 focus:ring-blue-500 rounded px-1">
+                                <input type="text" value="${section.title}" onchange="updateSectionField('${column}', ${section.id}, 'title', this.value)" class="flex-1 bg-transparent border-0 outline-none focus:ring-2 focus:ring-blue-500 rounded px-2">
+                            ` : `
+                                <span>${section.icon}</span>
+                                <span>${section.title}</span>
+                            `}
+                        </h2>
+                    </div>
+                `;
+            }
+
+            if (section.type === 'job') {
+                html += `
+                    <div class="mb-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <div class="flex-1">
+                                ${isEditing ? `
+                                    <input type="text" value="${section.title}" onchange="updateSectionField('${column}', ${section.id}, 'title', this.value)" class="font-bold text-base w-full bg-transparent border-0 outline-none focus:ring-2 focus:ring-blue-500 rounded px-2">
+                                    <input type="text" value="${section.company}" onchange="updateSectionField('${column}', ${section.id}, 'company', this.value)" class="text-sm w-full bg-transparent border-0 outline-none focus:ring-2 focus:ring-blue-500 rounded px-2">
+                                ` : `
+                                    <div class="font-bold text-base">${section.title}</div>
+                                    <div class="text-sm text-gray-700">${section.company}</div>
+                                `}
+                            </div>
+                            ${isEditing ? `
+                                <input type="text" value="${section.date}" onchange="updateSectionField('${column}', ${section.id}, 'date', this.value)" class="text-sm text-right text-gray-600 bg-transparent border-0 outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 ml-4 w-40">
+                            ` : `
+                                <div class="text-sm text-gray-600 ml-4 whitespace-nowrap">${section.date}</div>
+                            `}
+                        </div>
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            ${section.bullets.map((bullet, i) => `
+                                <li class="text-gray-700">
+                                    ${isEditing ? `
+                                        <input type="text" value="${bullet}" onchange="updateBullet('${column}', ${section.id}, ${i}, this.value)" class="w-[95%] bg-transparent border-0 outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 -ml-1">
+                                    ` : `
+                                        <span>${bullet}</span>
+                                    `}
+                                </li>
+                            `).join('')}
+                        </ul>
+                        ${isEditing ? `
+                            <button onclick="addBullet('${column}', ${section.id})" class="text-xs text-blue-600 hover:text-blue-700 ml-6 mt-1">
+                                + Add bullet
+                            </button>
+                        ` : ''}
+                    </div>
+                `;
+            }
+
+            if (section.type === 'education') {
+                html += `
+                    <div class="mb-4">
+                        <div class="flex justify-between items-start">
+                            <div class="flex-1">
+                                ${isEditing ? `
+                                    <input type="text" value="${section.institution}" onchange="updateSectionField('${column}', ${section.id}, 'institution', this.value)" class="font-bold text-sm w-full bg-transparent border-0 outline-none focus:ring-2 focus:ring-blue-500 rounded px-2">
+                                    <input type="text" value="${section.degree}" onchange="updateSectionField('${column}', ${section.id}, 'degree', this.value)" class="text-sm w-full bg-transparent border-0 outline-none focus:ring-2 focus:ring-blue-500 rounded px-2">
+                                ` : `
+                                    <div class="font-bold text-sm">${section.institution}</div>
+                                    <div class="text-sm text-gray-700">${section.degree}</div>
+                                `}
+                            </div>
+                            ${isEditing ? `
+                                <input type="text" value="${section.date}" onchange="updateSectionField('${column}', ${section.id}, 'date', this.value)" class="text-sm text-right text-gray-600 bg-transparent border-0 outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 ml-4">
+                            ` : `
+                                <div class="text-sm text-gray-600 ml-4 whitespace-nowrap">${section.date}</div>
+                            `}
+                        </div>
+                    </div>
+                `;
+            }
+
+            if (section.type === 'project') {
+                html += `
+                    <div class="mb-4">
+                        <div class="flex justify-between items-start mb-1">
+                            ${isEditing ? `
+                                <input type="text" value="${section.title}" onchange="updateSectionField('${column}', ${section.id}, 'title', this.value)" class="font-bold text-sm flex-1 bg-transparent border-0 outline-none focus:ring-2 focus:ring-blue-500 rounded px-2">
+                                <input type="text" value="${section.date}" onchange="updateSectionField('${column}', ${section.id}, 'date', this.value)" class="text-sm text-right text-gray-600 bg-transparent border-0 outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 ml-4">
+                            ` : `
+                                <div class="font-bold text-sm flex-1">${section.title}</div>
+                                <div class="text-sm text-gray-600 ml-4 whitespace-nowrap">${section.date}</div>
+                            `}
+                        </div>
+                        ${isEditing ? `
+                            <textarea onchange="updateSectionField('${column}', ${section.id}, 'description', this.value)" class="text-sm w-full bg-transparent border-0 outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 resize-none text-gray-700" rows="2">${section.description}</textarea>
+                        ` : `
+                            <div class="text-sm text-gray-700">${section.description}</div>
+                        `}
+                    </div>
+                `;
+            }
+
+            if (section.type === 'skillCategory') {
+                html += `
+                    <div class="mb-3">
+                        ${isEditing ? `
+                            <input type="text" value="${section.category}" onchange="updateSectionField('${column}', ${section.id}, 'category', this.value)" class="font-bold text-sm w-full bg-transparent border-0 outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 mb-1">
+                            <input type="text" value="${section.skills}" onchange="updateSectionField('${column}', ${section.id}, 'skills', this.value)" class="text-sm w-full bg-transparent border-0 outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 text-gray-700">
+                        ` : `
+                            <div class="text-sm">
+                                <span class="font-bold">${section.category}:</span> 
+                                <span class="text-gray-700">${section.skills}</span>
+                            </div>
+                        `}
+                    </div>
+                `;
+            }
+
+            if (section.type === 'languages') {
+                html += `
+                    <div>
+                        <div class="grid grid-cols-3 gap-4">
+                            ${section.languages.map((lang, i) => `
+                                <div class="text-center">
+                                    ${isEditing ? `
+                                        <input type="text" value="${lang.name}" onchange="updateSectionField('${column}', ${section.id}, 'languages', [...${JSON.stringify(section.languages).slice(0, -1)}, {...${JSON.stringify(section.languages)}[${i}], name: this.value}])" class="font-bold text-sm w-full bg-transparent border-0 outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 text-center">
+                                        <input type="text" value="${lang.level}" class="text-xs text-gray-600 w-full bg-transparent border-0 outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 text-center">
+                                    ` : `
+                                        <div class="font-bold text-sm">${lang.name}</div>
+                                        <div class="text-xs text-gray-600">${lang.level}</div>
+                                    `}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            html += '</div>';
+            return html;
+        }
+
+        function renderResume() {
+            const leftColumn = document.getElementById('leftColumn');
+            const rightColumn = document.getElementById('rightColumn');
+
+            if (resumeData.leftSections.length === 0) {
+                leftColumn.innerHTML = editMode ? '<div class="text-center py-8 text-gray-400 text-sm">Add sections from sidebar</div>' : '';
+            } else {
+                leftColumn.innerHTML = resumeData.leftSections.map((section, idx) => renderSection(section, 'left', idx)).join('');
+            }
+
+            if (resumeData.rightSections.length === 0) {
+                rightColumn.innerHTML = editMode ? '<div class="text-center py-8 text-gray-400 text-sm">Add sections from sidebar</div>' : '';
+            } else {
+                rightColumn.innerHTML = resumeData.rightSections.map((section, idx) => renderSection(section, 'right', idx)).join('');
+            }
+        }
+
+        // Initial render
+        renderResume();
     </script>
 </body>
-
 </html>

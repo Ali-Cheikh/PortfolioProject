@@ -30,7 +30,7 @@
             line-height: 1.3;
             color: var(--text-color);
             background-color: var(--bg-color);
-            font-size: 9pt;
+            font-size: 9.5pt;
         }
 
         .page-container {
@@ -44,7 +44,7 @@
         }
 
         .resume-content {
-            padding: 8mm 10mm;
+            padding: 6mm 8mm;
             height: 100%;
             overflow: hidden;
         }
@@ -58,14 +58,14 @@
 
         h1 {
             color: var(--primary-color);
-            font-size: 22pt;
+            font-size: 22.5pt;
             font-weight: 700;
             margin-bottom: 3px;
         }
 
         .subtitle {
             color: var(--secondary-color);
-            font-size: 12pt;
+            font-size: 12.5pt;
             font-weight: 500;
             margin-bottom: 8px;
         }
@@ -75,7 +75,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 15px;
-            font-size: 8pt;
+            font-size: 8.5pt;
         }
 
         .contact-info a {
@@ -92,7 +92,7 @@
 
         .summary {
             text-align: justify;
-            font-size: 10pt;
+            font-size: 10.5pt;
             line-height: 1.3;
             margin-bottom: 15px;
             font-weight: 500;
@@ -112,7 +112,7 @@
 
         h2 {
             color: var(--primary-color);
-            font-size: 12pt;
+            font-size: 12.5pt;
             font-weight: 600;
             margin-bottom: 8px;
             border-bottom: 1px solid var(--accent-color);
@@ -120,7 +120,7 @@
         }
 
         .job {
-            margin-bottom: 10px;
+            margin-bottom: 6px;
             break-inside: avoid;
         }
 
@@ -134,19 +134,19 @@
         .job-title {
             font-weight: 600;
             color: var(--secondary-color);
-            font-size: 10pt;
+            font-size: 10.5pt;
         }
 
         .company {
             font-weight: 500;
             color: var(--primary-color);
-            font-size: 9pt;
+            font-size: 9.5pt;
         }
 
         .date {
             color: #666;
             font-style: italic;
-            font-size: 8pt;
+            font-size: 8.5pt;
             white-space: nowrap;
         }
 
@@ -157,7 +157,7 @@
 
         .job-description li {
             margin-bottom: 1px;
-            font-size: 9pt;
+            font-size: 9.5pt;
             line-height: 1.2;
         }
 
@@ -172,13 +172,13 @@
             background-color: var(--skill-bg);
             padding: 4px 8px;
             border-radius: 3px;
-            font-size: 8pt;
+            font-size: 8.5pt;
             border-left: 2px solid var(--accent-color);
         }
 
         .skill-category strong {
             color: var(--secondary-color);
-            font-size: 9pt;
+            font-size: 9.5pt;
         }
 
         .education-item {
@@ -196,11 +196,11 @@
         .institution {
             font-weight: 600;
             color: var(--secondary-color);
-            font-size: 9pt;
+            font-size: 9.5pt;
         }
 
         .degree {
-            font-size: 8pt;
+            font-size: 8.5pt;
             color: var(--text-color);
             margin-bottom: 2px;
         }
@@ -222,11 +222,11 @@
         .language-name {
             font-weight: 600;
             color: var(--secondary-color);
-            font-size: 9pt;
+            font-size: 9.5pt;
         }
 
         .language-level {
-            font-size: 8pt;
+            font-size: 8.5pt;
             color: #666;
         }
 
@@ -235,7 +235,7 @@
         }
 
         .specializations li {
-            font-size: 8pt;
+            font-size: 8.5pt;
             margin-bottom: 2px;
             line-height: 1.2;
         }
@@ -259,7 +259,7 @@
             border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 10pt;
+            font-size: 10.5pt;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
