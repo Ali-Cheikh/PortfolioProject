@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ali Cheikh — Full‑Stack Developer</title>
+<title>Ali Cheikh — Systems Administrator</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
 <style>
@@ -12,10 +12,10 @@
     --navy-light:#2c5a8a;
     --text:#2a2f36;
     --muted:#5b6470;
-    --bg:#ffffff;
+    --bg:#f4f6f8;
     --card:#ffffff;
     --border:#dde3ea;
-    --accent-bg:#ffffff;
+    --accent-bg:#eef3f8;
 }
 [data-theme="dark"]{
     --navy:#7fb0e0;
@@ -56,11 +56,12 @@ body{
 .control-btn:hover{opacity:.9;}
 .page-container{
     max-width:210mm;
-    margin:30px auto 30px;
+    margin:50px auto 30px;
     padding:0 10px;
 }
 .resume-content{
     background:var(--card);
+    border:1px solid var(--border);
     border-radius:6px;
     width:210mm;
     min-height:297mm;
@@ -103,6 +104,8 @@ header h1{
     padding-bottom:6px;
     border-bottom:1px solid var(--border);
 }
+
+/* Education + Languages top strip */
 .top-strip{
     display:grid;
     grid-template-columns:1.6fr 1fr;
@@ -126,7 +129,9 @@ header h1{
 .edu-row .institution{font-weight:600; font-size:10px;}
 .edu-row .degree{font-size:9.3px; color:var(--muted);}
 .edu-row .date{font-size:9px; color:var(--muted); white-space:nowrap;}
-.lang-row{display:flex; gap:10px; flex-wrap:wrap;}
+.lang-row{
+    display:flex; gap:10px; flex-wrap:wrap;
+}
 .lang-pill{
     background:var(--accent-bg);
     border-radius:4px;
@@ -135,6 +140,7 @@ header h1{
     display:flex; gap:4px;
 }
 .lang-pill b{font-weight:600;}
+
 .two-column{
     display:grid;
     grid-template-columns:1.5fr 1fr;
@@ -160,6 +166,7 @@ header h1{
 .job-description{font-size:9.8px; line-height:1.32; color:var(--text);}
 .job-description ul{margin:2px 0 0; padding-left:13px;}
 .job-description li{margin-bottom:1px;}
+
 .skills-grid{display:flex; flex-direction:column; gap:4px;}
 .skill-category{
     font-size:9.3px;
@@ -169,11 +176,20 @@ header h1{
     padding:4px 7px;
     border-radius:4px;
 }
+
 .cert-group{margin-bottom:4px; font-size:9.3px; line-height:1.35;}
 .cert-group b{color:var(--navy-light);}
-.note{font-size:9px; color:var(--muted); font-style:italic;}
+.cert-list{font-size:9.3px; line-height:1.3; margin:0; padding-left:13px;}
+.cert-list li{margin-bottom:1px;}
+
+.note{
+    font-size:9px;
+    color:var(--muted);
+    font-style:italic;
+}
 .project-slots{margin:0; padding-left:13px; font-size:9.3px; line-height:1.35;}
 .project-slots li{margin-bottom:2px;}
+
 @media (max-width:720px){
     .two-column{grid-template-columns:1fr;}
     .top-strip{grid-template-columns:1fr;}
@@ -186,11 +202,12 @@ header h1{
     .page-container{margin:0; padding:0; max-width:none;}
     .resume-content{
         border:none; border-radius:0; box-shadow:none;
-        width:210mm; min-height:0; padding:5mm 6mm;
+        width:210mm; min-height:0; padding:9mm 11mm;
         page-break-inside:avoid;
     }
     @page{ size:A4; margin:0; }
 }
+
 </style>
 </head>
 <body data-theme="dark">
@@ -202,7 +219,7 @@ header h1{
 <div class="resume-content" id="resumeContent">
     <header>
         <h1>Ali Cheikh</h1>
-        <div class="subtitle">Full-Stack Developer &amp; Product Builder</div>
+        <div class="subtitle">Systems Administrator &amp; Business Automation Specialist</div>
         <div class="contact-info">
             <a href="mailto:contact@ali-cheikh.com"><i class="fas fa-envelope"></i> contact@ali-cheikh.com</a>
             <a href="tel:+21690725434"><i class="fas fa-phone"></i> +216 90 725 434</a>
@@ -212,7 +229,7 @@ header h1{
     </header>
 
     <div class="summary">
-        Full-stack developer and entrepreneur building production web apps, AI tools, and internal systems end to end. Selected for Live The Residency – Delta (top 15 of 1,500 applicants); co-founded BlooLabb, an AI-powered learning platform for Tunisian youth. Comfortable owning a feature from architecture to deployment, across frontend, backend, and the automation glue in between.
+        Systems administrator and technical operator with a developer's background — builds the internal tools he then administers. Experience spans HR-tech and recruitment systems, IT administration, reporting automation, and cross-functional project support. Selected for Live The Residency – Delta (top 15 of 1,500 applicants) for co-founding an AI-powered learning platform.
     </div>
 
     <div class="top-strip">
@@ -235,18 +252,20 @@ header h1{
         <div class="left-column">
             <section class="section">
                 <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+
                 <div class="job">
                     <div class="job-header">
                         <div><div class="job-title">IT &amp; Recruitment Systems Administrator</div>
                         <div class="company">Tunisia Oil &amp; Gas Services</div></div>
-                        <div class="date">May 2026 - Jun 2026</div>
+                        <div class="date">May 2026 – Jun 2026</div>
                     </div>
                     <div class="job-description"><ul>
-                        <li>Built an internal management system for workforce job applications and interview scheduling.</li>
-                        <li>Managed job postings, LinkedIn presence, and recruitment-related media/communications.</li>
-                        <li>Administered internal tools and automated project report generation, replacing manual reporting.</li>
+                        <li>Designed and administered an internal management system for workforce (hand-force) job applications and interview scheduling.</li>
+                        <li>Owned job postings, LinkedIn presence, and recruitment-related media/communications end to end.</li>
+                        <li>Acted as general IT administrator; automated project report generation, replacing manual reporting workflows.</li>
                     </ul></div>
                 </div>
+
                 <div class="job">
                     <div class="job-header">
                         <div><div class="job-title">Technical Co-Founder — BlooLabb</div>
@@ -254,21 +273,23 @@ header h1{
                         <div class="date">2025</div>
                     </div>
                     <div class="job-description"><ul>
-                        <li>Built an AI-powered kids learning platform, selected among 15 finalists from 1,500 applicants.</li>
-                        <li>Architected the full platform: video delivery, quizzes, AI tutor, content management, and progress tracking.</li>
+                        <li>Co-founded and operated an AI-powered kids learning platform, selected among 15 finalists from 1,500 applicants.</li>
+                        <li>Owned platform operations: content management, progress tracking, and internal tooling.</li>
                     </ul></div>
                 </div>
+
                 <div class="job">
                     <div class="job-header">
-                        <div><div class="job-title">Full Stack Developer</div>
-                        <div class="company">LingoLand / Lingoville</div></div>
-                        <div class="date">Jun 2024 – Ongoing</div>
+                        <div><div class="job-title">Backend Developer &amp; Workflow Automation</div>
+                        <div class="company">i-startup – Co-Work Solutions</div></div>
+                        <div class="date">Jan 2021 – Jun 2022</div>
                     </div>
                     <div class="job-description"><ul>
-                        <li>Designed platform architecture and MVP for an edtech product; built dashboards and student enrollment flows.</li>
-                        <li>Integrated Google APIs and implemented SEO and performance improvements.</li>
+                        <li>Migrated co-working space management off spreadsheets onto a CMS dashboard.</li>
+                        <li>Automated recurring business workflows with Google Apps Script; built email marketing and client management tools.</li>
                     </ul></div>
                 </div>
+
                 <div class="job">
                     <div class="job-header">
                         <div><div class="job-title">Software Developer Intern</div>
@@ -276,18 +297,18 @@ header h1{
                         <div class="date">Jul 2024 – Sep 2024</div>
                     </div>
                     <div class="job-description"><ul>
-                        <li>Built a public website and internal invoicing system; developed custom dashboards and REST APIs.</li>
+                        <li>Built internal invoicing system and admin dashboards; supported internal operations with custom REST APIs.</li>
                     </ul></div>
                 </div>
+
                 <div class="job">
                     <div class="job-header">
-                        <div><div class="job-title">Backend Developer</div>
-                        <div class="company">i-startup – Co-Work Solutions</div></div>
-                        <div class="date">Jan 2021 – Jun 2022</div>
+                        <div><div class="job-title">Full Stack Developer</div>
+                        <div class="company">LingoLand / Lingoville</div></div>
+                        <div class="date">Jun 2024 – Ongoing</div>
                     </div>
                     <div class="job-description"><ul>
-                        <li>Developed CMS dashboards for managing co-working spaces, migrating off spreadsheet-based databases.</li>
-                        <li>Automated business workflows with Google Apps Script; built email marketing and client management tools.</li>
+                        <li>Built dashboards and enrollment/student-management flows for an edtech platform.</li>
                     </ul></div>
                 </div>
             </section>
@@ -295,63 +316,56 @@ header h1{
             <section class="section">
                 <h2><i class="fas fa-project-diagram"></i> Key Projects</h2>
                 <div class="job">
-                    <div class="job-header"><div class="job-title">BlooLabb AI Learning Platform</div><div class="date">2025</div></div>
-                    <div class="job-description">AI-powered learning platform for kids, built with a modern stack and agent-based tutoring.</div>
-                </div>
-                <div class="job">
-                    <div class="job-header"><div class="job-title">Translation OCR + LLM Debate System</div><div class="date">2025</div></div>
-                    <div class="job-description">Experimental OCR pipeline with a dual-LLM debate mechanism, exploring AI-collaboration approaches to translation.</div>
+                    <div class="job-header"><div class="job-title">Workforce Management System</div><div class="date">Tunisia Oil &amp; Gas Services</div></div>
+                    <div class="job-description">Application, interview, and job-posting management system for hand-force recruitment.</div>
                 </div>
                 <div class="job">
                     <div class="job-header"><div class="job-title">Warehouse OCR System (Energen)</div><div class="date">2024 – 2025</div></div>
-                    <div class="job-description">Search-and-register OCR system for warehouse management, built with Tesseract.js and Apps Script — reduced manual workload by 80%.</div>
+                    <div class="job-description">Search-and-register OCR system for warehouse management — reduced manual workload by 80%.</div>
+                </div>
+                <div class="job">
+                    <div class="job-header"><div class="job-title">BlooLabb AI Learning Platform</div><div class="date">2025</div></div>
+                    <div class="job-description">AI-powered learning platform for kids, including internal content and progress-tracking tools.</div>
                 </div>
                 <div class="job">
                     <div class="job-header"><div class="job-title">tccards.tn — NFC Business Cards</div><div class="date">2025</div></div>
-                    <div class="job-description">Digital business card platform reducing paper waste — a sustainable networking solution.</div>
-                </div>
-                <div class="job">
-                    <div class="job-header"><div class="job-title">Workforce Management System</div><div class="date">Tunisia Oil &amp; Gas Services</div></div>
-                    <div class="job-description">Internal system for workforce job applications, interview scheduling, and job-posting management.</div>
+                    <div class="job-description">Digital business card platform — a sustainable networking solution.</div>
                 </div>
                 <div class="note" style="margin-top:4px;">Other projects that i've built:</div>
                 <ul class="project-slots">
-                    <li><b>Admin/CRM dashboard</b> — auth, role-based access, data tables, CRUD over a client's records</li>
-                    <li><b>Habit tracking application</b> — calendar UI, Notification logic, notifications</li>
-                    <li><b>API integration project</b> — AI gateway, messaging (WhatsApp/Telegram/Discord bot), maps</li>
-                    <li><b>Scraper / data pipeline</b> — scheduled scraping, cleaning, and storing external data</li>
-                    <li><b>E-commerce storefront</b> — cart, checkout, inventory sync</li>
+                    <li><b>HR workflow tool</b> — checklists, document collection, approvals</li>
+                    <li><b>Inventory tracking system</b>Sheets + Apps Script pipeline integrated with ESP32</li>
+                    <li><b>Google Workspace automation</b> — Sheets + Apps Script pipeline replacing manual data entry</li>
+                    <li><b>Ticketing/helpdesk system</b> for internal IT support</li>
+                    <li><b>Access/permissions management tool</b></li>
                 </ul>
             </section>
         </div>
 
         <div class="right-column">
             <section class="section">
-                <h2><i class="fas fa-code"></i> Technical Skills</h2>
+                <h2><i class="fas fa-server"></i> Core Skills</h2>
                 <div class="skills-grid">
-                    <div class="skill-category"><strong>Frontend:</strong> React, Next.js, TypeScript, JavaScript (ES6+), TailwindCSS, HTML5, CSS3/Sass</div>
-                    <div class="skill-category"><strong>Backend:</strong> Node.js, Express, REST APIs, PHP</div>
-                    <div class="skill-category"><strong>Database:</strong> MySQL, Supabase, Firebase, Google Sheets (as lightweight DB)</div>
-                    <div class="skill-category"><strong>AI &amp; LLM Tooling:</strong> OpenAI &amp; Anthropic APIs, Claude in Excel, OpenRouter, LLM agents, prompt engineering, agent architectures, OpenClaw</div>
-                    <div class="skill-category"><strong>Automation:</strong> Google Apps Script, Google Sheets automation, workflow &amp; reporting automation</div>
-                    <div class="skill-category"><strong>DevOps &amp; Tools:</strong> Git, GitHub, Vercel, Cloudflare, CI/CD basics</div>
-                    <div class="skill-category"><strong>Networking &amp; Security Basics:</strong> Core networking fundamentals, ethical hacking foundations</div>
-                    <div class="skill-category"><strong>Other:</strong> UI/UX design, SEO, Web performance</div>
+                    <div class="skill-category"><strong>Systems &amp; IT Admin:</strong> Internal tooling, user/access management, workflow systems, technical support</div>
+                    <div class="skill-category"><strong>HR-Tech &amp; Recruitment:</strong> Applicant tracking systems, interview scheduling, job posting &amp; LinkedIn management</div>
+                    <div class="skill-category"><strong>Automation &amp; Reporting:</strong> Google Apps Script, Google Sheets automation, Claude in Excel, automated report generation, dashboards</div>
+                    <div class="skill-category"><strong>Networking &amp; Security Basics:</strong> Core networking fundamentals, ethical hacking foundations, OS &amp; security basics</div>
+                    <div class="skill-category"><strong>Development:</strong> React, Next.js, Node.js, Express, PHP, REST APIs</div>
+                    <div class="skill-category"><strong>Database:</strong> MySQL, Supabase, Firebase, Google Sheets</div>
+                    <div class="skill-category"><strong>AI Tooling:</strong> OpenAI &amp; Anthropic APIs, prompt engineering, LLM agents</div>
+                    <div class="skill-category"><strong>Tools:</strong> Git, GitHub, Vercel, Cloudflare</div>
                 </div>
             </section>
 
             <section class="section">
                 <h2><i class="fas fa-certificate"></i> Certifications</h2>
-                <div class="cert-group"><b>GoMyCode</b> — Full Stack JavaScript Bootcamp</div>
-                <div class="cert-group"><b>IBM</b> — Generative AI for Software Developers Specialization; Generative AI: Introduction and Applications; Generative AI: Elevate Your Software Development Career</div>
-                <div class="cert-group"><b>Google</b> — AI Essentials Specialization; Prompting Essentials Specialization; Foundations of Business Intelligence</div>
-                <div class="cert-group"><b>NVIDIA</b> — Introduction to Networking</div>
                 <div class="cert-group"><b>Microsoft</b> — Introduction to Computers, Operating Systems &amp; Security; Microsoft Applied Skills: Streamline business workflows with AI chat</div>
-                <div class="cert-group"><b>Vanderbilt University</b> — Prompt Engineering for ChatGPT</div>
-                <div class="cert-group"><b>University of Michigan</b> — Interactivity with JavaScript</div>
-                <div class="cert-group"><b>Anthropic</b> — Claude Certifications</div>
+                <div class="cert-group"><b>NVIDIA</b> — Introduction to Networking</div>
+                <div class="cert-group"><b>Google</b> — Prompting Essentials Specialization; AI Essentials Specialization; Foundations of Business Intelligence</div>
+                <div class="cert-group"><b>IBM</b> — Generative AI for Educators Specialization; Generative AI: Introduction and Applications; Generative AI: Empowering Modern Education</div>
+                <div class="cert-group"><b>SEMrush Academy</b> — SEO &amp; Meta Tag Optimization</div>
                 <div class="cert-group"><b>Packt</b> — Ethical Hacking Foundations</div>
-                <div class="cert-group note">+ additional Google/IBM/Coursera courses in generative AI, prompting &amp; developer productivity</div>
+                <div class="cert-group"><b>GoMyCode</b> — Full Stack JavaScript Bootcamp</div>
             </section>
 
             <section class="section">
@@ -361,11 +375,8 @@ header h1{
                     <div class="job-description">A zero‑cost framework that turns your curated RSS feeds into a daily, AI‑ranked digest.</div>
                 </div>
                 <div class="job">
-                    <div class="job-header">
-                        <div class="job-title">Scape.js — Animated Background Library</div>
-                        <div class="date">2025</div>
-                    </div>
-                    <div class="job-description">Authored and published a lightweight (~5KB) JS library for animated, interactive backgrounds — 18+ shape types, custom image support, full API.</div>
+                    <div class="job-header"><div class="job-title">Scape.js — Animated Background Library</div><div class="date">2025</div></div>
+                    <div class="job-description">Authored and published a lightweight (~5KB) JS library for animated, interactive backgrounds.</div>
                 </div>
                 <div class="job">
                     <div class="job-header">
@@ -380,77 +391,68 @@ header h1{
 </div>
 </div>
 <script>
-    (function() {
-        'use strict';
-        
-        const themeToggle = document.getElementById('themeToggle');
-        const pdfButton = document.getElementById('pdfButton');
-        const bodyElement = document.body;
-        
-        let currentTheme = localStorage.getItem('theme') || 'dark';
+(function() {
+    'use strict';
+    const themeToggle = document.getElementById('themeToggle');
+    const pdfButton = document.getElementById('pdfButton');
+    const bodyElement = document.body;
+
+    let currentTheme = localStorage.getItem('theme') || 'dark';
+    bodyElement.setAttribute('data-theme', currentTheme);
+
+    function updateThemeButton() {
+        themeToggle.innerHTML = currentTheme === 'dark'
+            ? '<i class="fas fa-sun"></i> Light Mode'
+            : '<i class="fas fa-moon"></i> Dark Mode';
+    }
+    updateThemeButton();
+
+    themeToggle.addEventListener('click', () => {
+        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
         bodyElement.setAttribute('data-theme', currentTheme);
-        
-        function updateThemeButton() {
-            themeToggle.innerHTML = currentTheme === 'dark'
-                ? '<i class="fas fa-sun"></i> Light Mode'
-                : '<i class="fas fa-moon"></i> Dark Mode';
-        }
-        
+        localStorage.setItem('theme', currentTheme);
         updateThemeButton();
-        
-        themeToggle.addEventListener('click', () => {
-            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-            bodyElement.setAttribute('data-theme', currentTheme);
-            localStorage.setItem('theme', currentTheme);
-            updateThemeButton();
-        });
-        
-        pdfButton.addEventListener('click', function() {
-            if (typeof html2pdf === 'undefined') {
-                alert('PDF library not loaded. Please refresh the page.');
-                return;
-            }
-            
-            window.scrollTo(0, 0);
-            bodyElement.setAttribute('data-theme', 'light');
-            
-            const originalText = this.innerHTML;
-            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
-            this.disabled = true;
-            
-            setTimeout(() => {
-                const element = document.getElementById('resumeContent');
-                const opt = {
-                    margin: [1, 1, 1, 1],
-                    filename: 'Ali_Cheikh_Resume.pdf',
-                    image: { type: 'jpeg', quality: 1 },
-                    html2canvas: { 
-                        scale: 4, 
-                        useCORS: true, 
-                        scrollY: 0, 
-                        windowHeight: document.documentElement.scrollHeight 
-                    },
-                    jsPDF: { 
-                        unit: 'mm', 
-                        format: 'a4', 
-                        orientation: 'portrait' 
-                    }
-                };
-                
-                html2pdf().set(opt).from(element).save()
-                    .then(() => {
-                        this.innerHTML = originalText;
-                        this.disabled = false;
-                    })
-                    .catch(err => {
-                        console.error('PDF generation failed:', err);
-                        this.innerHTML = originalText;
-                        this.disabled = false;
-                        alert('Failed to generate PDF. Please try again.');
-                    });
-            }, 100);
-        });
-    })();
+    });
+
+    pdfButton.addEventListener('click', function() {
+        if (typeof html2pdf === 'undefined') {
+            alert('PDF library not loaded. Please refresh the page.');
+            return;
+        }
+        window.scrollTo(0, 0);
+        const prevTheme = currentTheme;
+        bodyElement.setAttribute('data-theme', 'light');
+
+        const originalText = this.innerHTML;
+        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+        this.disabled = true;
+
+        setTimeout(() => {
+            const element = document.getElementById('resumeContent');
+            const opt = {
+                margin: [8, 8, 8, 8],
+                filename: document.title.includes('Systems') ? 'Ali_Cheikh_CV_Systems_Admin.pdf' : 'Ali_Cheikh_CV_FullStack_Dev.pdf',
+                image: { type: 'jpeg', quality: 1 },
+                html2canvas: { scale: 3, useCORS: true, scrollY: 0, windowHeight: document.documentElement.scrollHeight },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save()
+                .then(() => {
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                    bodyElement.setAttribute('data-theme', prevTheme);
+                })
+                .catch(err => {
+                    console.error('PDF generation failed:', err);
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                    bodyElement.setAttribute('data-theme', prevTheme);
+                    alert('Failed to generate PDF. Please try again.');
+                });
+        }, 100);
+    });
+})();
+
 </script>
 </body>
 </html>
