@@ -1,297 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Cheikh - Systems Administrator</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: Calibri, 'Segoe UI', Arial, sans-serif;
-            font-size: 14px;
-            line-height: 1.45;
-            color: #2c3e50;
-            background: #f8f9fa;
-        }
-        .controls {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            gap: 8px;
-            z-index: 100;
-        }
-        button {
-            background: #1b3a5c;
-            color: white;
-            border: none;
-            padding: 8px 14px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 11px;
-            font-weight: 600;
-        }
-        button:hover { background: #2c5a8a; }
-        .page-container {
-            max-width: 8.5in;
-            margin: 30px auto;
-            padding: 10px;
-        }
-        .resume {
-            background: white;
-            width: 8.5in;
-            margin: 0 auto;
-            padding: 0.35in 0.45in;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        header {
-            text-align: center;
-            border-bottom: 2px solid #1b3a5c;
-            padding-bottom: 4px;
-            margin-bottom: 6px;
-        }
-        h1 {
-            font-size: 19px;
-            color: #1b3a5c;
-            margin-bottom: 2px;
-            font-weight: 700;
-        }
-        .title {
-            font-size: 14px;
-            color: #5b6470;
-            margin-bottom: 3px;
-        }
-        .contact {
-            font-size: 13px;
-            color: #2c3e50;
-        }
-        section {
-            margin-bottom: 5px;
-        }
-        h2 {
-            font-size: 13.5px;
-            font-weight: 700;
-            color: #1b3a5c;
-            border-bottom: 1px solid #1b3a5c;
-            padding-bottom: 1px;
-            margin-bottom: 3px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .entry {
-            margin-bottom: 3px;
-        }
-        .header-line {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1px;
-        }
-        .job-title {
-            font-weight: 700;
-            font-size: 13.5px;
-            color: #2c3e50;
-        }
-        .company {
-            font-size: 13px;
-            color: #5b6470;
-        }
-        .date {
-            font-size: 12.5px;
-            color: #5b6470;
-        }
-        ul {
-            margin: 1px 0 0 16px;
-            padding: 0;
-            list-style: disc;
-        }
-        li {
-            font-size: 13px;
-            line-height: 1.3;
-            margin-bottom: 1px;
-            color: #2c3e50;
-        }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3px;
-            font-size: 13px;
-            line-height: 1.3;
-        }
-        .skill-block strong {
-            color: #2c3e50;
-        }
-        .skill-block {
-            line-height: 1.3;
-        }
-        .inline-text {
-            font-size: 13px;
-            line-height: 1.4;
-            color: #2c3e50;
-        }
-        @media print {
-            body { background: white; }
-            .controls { display: none; }
-            .page-container { margin: 0; padding: 0; }
-            .resume { box-shadow: none; width: 8.5in; }
-            @page { size: letter; margin: 0; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ali Cheikh — Business Logistics Strategist &amp; Systems Administrator</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+<style>
+:root{
+    --navy:#1b3a5c;
+    --navy-light:#2c5a8a;
+    --text:#2a2f36;
+    --muted:#5b6470;
+    --bg:#f4f6f8;
+    --card:#ffffff;
+    --border:#dde3ea;
+    --accent-bg:#eef3f8;
+}
+[data-theme="dark"]{
+    --navy:#7fb0e0;
+    --navy-light:#9cc4ec;
+    --text:#e7ebf0;
+    --muted:#a7b0bc;
+    --bg:#12161c;
+    --card:#1a1f27;
+    --border:#2a323d;
+    --accent-bg:#1f2733;
+}
+*{box-sizing:border-box;}
+html,body{height:auto;}
+body{
+    margin:0;
+    font-family:'Segoe UI', Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    transition:background .2s, color .2s;
+    font-size:12px;
+}
+.controls{
+    position:fixed;
+    top:12px; right:12px;
+    display:flex; gap:8px;
+    z-index:100;
+}
+.control-btn{
+    background:var(--navy);
+    color:#fff;
+    border:none;
+    padding:7px 12px;
+    border-radius:6px;
+    font-size:12px;
+    cursor:pointer;
+    display:flex; align-items:center; gap:6px;
+}
+.control-btn:hover{opacity:.9;}
+.page-container{
+    max-width:210mm;
+    margin:50px auto 30px;
+    padding:0 10px;
+}
+.resume-content{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:6px;
+    width:210mm;
+    min-height:297mm;
+    max-width:100%;
+    margin:0 auto;
+    padding:10mm 12mm;
+}
+header{
+    text-align:center;
+    border-bottom:1.5px solid var(--navy);
+    padding-bottom:7px;
+    margin-bottom:7px;
+}
+header h1{
+    margin:0 0 2px;
+    font-size:22px;
+    color:var(--navy);
+    letter-spacing:.3px;
+}
+.subtitle{
+    font-size:12px;
+    color:var(--muted);
+    margin-bottom:5px;
+}
+.contact-info{
+    display:flex; justify-content:center; flex-wrap:wrap; gap:12px;
+    font-size:10px;
+}
+.contact-info a{
+    color:var(--text);
+    text-decoration:none;
+    display:flex; align-items:center; gap:4px;
+}
+.contact-info a:hover{color:var(--navy-light);}
+.summary{
+    font-size:10.3px;
+    line-height:1.35;
+    color:var(--text);
+    margin-bottom:7px;
+    padding-bottom:6px;
+    border-bottom:1px solid var(--border);
+}
+.top-strip{
+    display:grid;
+    grid-template-columns:1.6fr 1fr;
+    gap:10px;
+    margin-bottom:9px;
+    padding-bottom:7px;
+    border-bottom:1px solid var(--border);
+}
+.strip-block h2{
+    font-size:10.5px;
+    color:var(--navy);
+    text-transform:uppercase;
+    letter-spacing:.4px;
+    margin:0 0 4px;
+    display:flex; align-items:center; gap:5px;
+}
+.edu-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    gap:6px; margin-bottom:2px;
+}
+.edu-row .institution{font-weight:600; font-size:10px;}
+.edu-row .degree{font-size:9.3px; color:var(--muted);}
+.edu-row .date{font-size:9px; color:var(--muted); white-space:nowrap;}
+.lang-row{display:flex; gap:10px; flex-wrap:wrap;}
+.lang-pill{
+    background:var(--accent-bg);
+    border-radius:4px;
+    padding:3px 8px;
+    font-size:9.5px;
+    display:flex; gap:4px;
+}
+.lang-pill b{font-weight:600;}
+.two-column{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:16px;
+}
+.section{margin-bottom:8px;}
+.section h2{
+    font-size:12px;
+    color:var(--navy);
+    display:flex; align-items:center; gap:6px;
+    border-bottom:1px solid var(--border);
+    padding-bottom:3px;
+    margin:0 0 5px;
+}
+.job{margin-bottom:6px;}
+.job-header{
+    display:flex; justify-content:space-between; align-items:baseline;
+    gap:6px;
+}
+.job-title{font-weight:600; font-size:10.5px; color:var(--text);}
+.company{font-size:9.5px; color:var(--muted); font-style:italic;}
+.date{font-size:9px; color:var(--muted); white-space:nowrap;}
+.job-description{font-size:9.8px; line-height:1.32; color:var(--text);}
+.job-description ul{margin:2px 0 0; padding-left:13px;}
+.job-description li{margin-bottom:1px;}
+.skills-grid{display:flex; flex-direction:column; gap:4px;}
+.skill-category{
+    font-size:9.3px;
+    line-height:1.3;
+    background:var(--accent-bg);
+    border-left:3px solid var(--navy-light);
+    padding:4px 7px;
+    border-radius:4px;
+}
+.cert-group{margin-bottom:4px; font-size:9.3px; line-height:1.35;}
+.cert-group b{color:var(--navy-light);}
+.note{font-size:9px; color:var(--muted); font-style:italic;}
+.project-slots{margin:0; padding-left:13px; font-size:9.3px; line-height:1.35;}
+.project-slots li{margin-bottom:2px;}
+@media (max-width:720px){
+    .two-column{grid-template-columns:1fr;}
+    .top-strip{grid-template-columns:1fr;}
+    .contact-info{gap:10px;}
+    .resume-content{width:100%; min-height:0;}
+}
+@media print{
+    .controls{display:none;}
+    body{background:#fff;}
+    .page-container{margin:0; padding:0; max-width:none;}
+    .resume-content{
+        border:none; border-radius:0; box-shadow:none;
+        width:210mm; min-height:0; padding:9mm 11mm;
+        page-break-inside:avoid;
+    }
+    @page{ size:A4; margin:0; }
+}
+</style>
 </head>
-<body>
-    <div class="controls">
-        <button onclick="window.print()">Print</button>
-        <button onclick="downloadPDF()">Download PDF</button>
+<body data-theme="dark">
+<div class="controls">
+    <button class="control-btn" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-sun"></i> Light Mode</button>
+    <button class="control-btn" id="pdfButton" aria-label="Download PDF"><i class="fas fa-file-pdf"></i> Download PDF</button>
+</div>
+<div class="page-container">
+<div class="resume-content" id="resumeContent">
+    <header>
+        <h1>Ali Cheikh</h1>
+        <div class="subtitle">Business Logistics Strategist &amp; Systems Administrator</div>
+        <div class="contact-info">
+            <a href="mailto:contact@alicheikh.tn"><i class="fas fa-envelope"></i> contact@alicheikh.tn</a>
+            <a href="tel:+21690725434"><i class="fas fa-phone"></i> +216 90 725 434</a>
+            <a href="https://www.alicheikh.tn" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> alicheikh.tn</a>
+            <a href="https://www.linkedin.com/in/ali-cheikh" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </header>
+
+    <div class="summary">
+        Business logistics strategist and systems administrator with developer expertise. Passionate about building scalable HR-tech solutions and streamlining operations through intelligent automation. Proven track record delivering 80%+ workload reduction and measurable ROI. Strategic team player and high-impact operator who excels at transforming complex business challenges into elegant, scalable systems.
     </div>
 
-    <div class="page-container">
-        <div class="resume" id="resume">
-            <header>
-                <h1>ALI CHEIKH</h1>
-                <div class="title">Systems Administrator & Business Automation Specialist</div>
-                <div class="contact">
-                    contact@alicheikh.tn | +216 90 725 434 | alicheikh.tn | linkedin.com/in/ali-cheikh
-                </div>
-            </header>
+    <div class="top-strip">
+        <div class="strip-block">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="edu-row"><div><span class="institution">International School of Business</span> — <span class="degree">Business Administration</span></div><div class="date">2026 – 2029</div></div>
+            <div class="edu-row"><div><span class="institution">Mediterranean Institute of Technology</span> — <span class="degree">Computer Science, Year 1</span></div><div class="date">2025 – 2026</div></div>
+        </div>
+        <div class="strip-block">
+            <h2><i class="fas fa-language"></i> Languages</h2>
+            <div class="lang-row">
+                <div class="lang-pill"><b>English</b> Professional</div>
+                <div class="lang-pill"><b>Arabic</b> Native</div>
+                <div class="lang-pill"><b>French</b> Conversational</div>
+            </div>
+        </div>
+    </div>
 
-            <section>
-                <h2>PROFESSIONAL SUMMARY</h2>
-                <div class="inline-text">
-                    Business logistics strategist and systems administrator with developer expertise. Passionate about building scalable HR-tech solutions and streamlining operations through intelligent automation. Proven track record delivering 80%+ workload reduction and measurable ROI. Strategic team player and high-impact operator who excels at transforming complex business challenges into elegant, scalable systems.
-                </div>
-            </section>
+    <div class="two-column">
+        <div class="left-column">
+            <section class="section">
+                <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
 
-            <section>
-                <h2>PROFESSIONAL EXPERIENCE</h2>
-
-                <div class="entry">
-                    <div class="header-line">
-                        <span class="job-title">IT & Recruitment Systems Administrator</span>
-                        <span class="date">2026</span>
+                <div class="job">
+                    <div class="job-header">
+                        <div><div class="job-title">IT &amp; Recruitment Systems Administrator</div>
+                        <div class="company">Tunisia Oil &amp; Gas Services</div></div>
+                        <div class="date">2026</div>
                     </div>
-                    <div class="company">Tunisia Oil & Gas Services</div>
-                    <ul>
+                    <div class="job-description"><ul>
                         <li>Designed and administered workforce management system for job applications and interview scheduling.</li>
                         <li>Managed recruitment operations: job postings, LinkedIn presence, candidate communications, and hiring workflow optimization.</li>
                         <li>Automated project reporting system using business logic automation, eliminating 6+ hours weekly manual report generation.</li>
-                    </ul>
+                    </ul></div>
                 </div>
 
-                <div class="entry">
-                    <div class="header-line">
-                        <span class="job-title">Technical Co-Founder – BlooLabb</span>
-                        <span class="date">2025</span>
+                <div class="job">
+                    <div class="job-header">
+                        <div><div class="job-title">Technical Co-Founder — BlooLabb</div>
+                        <div class="company">Live The Residency – Delta Programme</div></div>
+                        <div class="date">2025</div>
                     </div>
-                    <div class="company">Live The Residency – Delta Programme</div>
-                    <ul>
+                    <div class="job-description"><ul>
                         <li>Co-founded AI-powered learning platform selected among 15 finalists from 1,500 applicants; scaled to 100+ active users.</li>
                         <li>Owned platform operations and systems: content management infrastructure, student progress tracking, and administrative tooling.</li>
-                    </ul>
+                    </ul></div>
                 </div>
 
-                <div class="entry">
-                    <div class="header-line">
-                        <span class="job-title">Backend Developer & Workflow Automation</span>
-                        <span class="date">Jan 2021 – Jun 2022</span>
+                <div class="job">
+                    <div class="job-header">
+                        <div><div class="job-title">Backend Developer &amp; Workflow Automation</div>
+                        <div class="company">i-startup – Co-Work Solutions</div></div>
+                        <div class="date">Jan 2021 – Jun 2022</div>
                     </div>
-                    <div class="company">i-startup – Co-Work Solutions</div>
-                    <ul>
+                    <div class="job-description"><ul>
                         <li>Migrated co-working space operations from spreadsheet management to centralized CMS dashboard.</li>
                         <li>Automated recurring business workflows with Google Apps Script; built 4 email marketing and client management systems.</li>
-                    </ul>
+                    </ul></div>
                 </div>
 
-                <div class="entry">
-                    <div class="header-line">
-                        <span class="job-title">Software Developer Intern</span>
-                        <span class="date">Jul – Sep 2024</span>
+                <div class="job">
+                    <div class="job-header">
+                        <div><div class="job-title">Software Developer Intern</div>
+                        <div class="company">BinetCom</div></div>
+                        <div class="date">Jul 2024 – Sep 2024</div>
                     </div>
-                    <div class="company">BinetCom</div>
-                    <ul>
+                    <div class="job-description"><ul>
                         <li>Built internal invoicing system and admin dashboards; implemented custom APIs enabling 40% faster internal operations.</li>
-                    </ul>
+                    </ul></div>
                 </div>
             </section>
 
-            <section>
-                <h2>KEY PROJECTS & ACHIEVEMENTS</h2>
+            <section class="section">
+                <h2><i class="fas fa-project-diagram"></i> Key Projects &amp; Achievements</h2>
 
-                <div class="entry">
-                    <div class="job-title">Workforce Management System (TOGS)</div>
-                    <ul>
-                        <li>End-to-end HR system for job applications, interview scheduling, and recruitment management; replaced manual paper-based process.</li>
-                    </ul>
+                <div class="job">
+                    <div class="job-header"><div class="job-title">Workforce Management System (TOGS)</div><div class="date">Tunisia Oil &amp; Gas Services</div></div>
+                    <div class="job-description">End-to-end HR system for job applications, interview scheduling, and recruitment management; replaced manual paper-based process.</div>
                 </div>
 
-                <div class="entry">
-                    <div class="job-title">Warehouse OCR System (Energen)</div>
-                    <ul>
-                        <li>Built label scanning and inventory registration system using Tesseract.js and Google Apps Script; achieved 80% reduction in manual data entry workload.</li>
-                    </ul>
+                <div class="job">
+                    <div class="job-header"><div class="job-title">Warehouse OCR System (Energen)</div><div class="date">2024 – 2025</div></div>
+                    <div class="job-description">Built label scanning and inventory registration system using Tesseract.js and Google Apps Script; achieved 80% reduction in manual data entry workload.</div>
                 </div>
             </section>
+        </div>
 
-            <section>
-                <h2>TECHNICAL SKILLS</h2>
+        <div class="right-column">
+            <section class="section">
+                <h2><i class="fas fa-code"></i> Technical Skills</h2>
                 <div class="skills-grid">
-                    <div class="skill-block">
-                        <strong>Systems & Admin:</strong> IT administration, user management, workflow systems, technical support, security, Microsoft 365
-                    </div>
-                    <div class="skill-block">
-                        <strong>HR-Tech:</strong> Applicant tracking, interview scheduling, job posting, LinkedIn integration
-                    </div>
-                    <div class="skill-block">
-                        <strong>Automation:</strong> Google Apps Script, Sheets automation, report generation, workflow optimization, Power automate
-                    </div>
-                    <div class="skill-block">
-                        <strong>Development:</strong> React, Node.js, TypeScript, Python, REST APIs, GraphQL, Next.js, Express.js, Tesseract.js
-                    </div>
-                    <div class="skill-block">
-                        <strong>Database:</strong> MySQL, PostgreSQL, Supabase, Cloudinary
-                    </div>
-                    <div class="skill-block">
-                        <strong>Tools:</strong> Git, GitHub, Vercel, Cloudflare, AI, CI/CD
-                    </div>
+                    <div class="skill-category"><strong>Systems &amp; Admin:</strong> IT administration, user management, workflow systems, technical support, security, Microsoft 365</div>
+                    <div class="skill-category"><strong>HR-Tech:</strong> Applicant tracking, interview scheduling, job posting, LinkedIn integration</div>
+                    <div class="skill-category"><strong>Automation:</strong> Google Apps Script, Sheets automation, report generation, workflow optimization, Power Automate</div>
+                    <div class="skill-category"><strong>Development:</strong> React, Node.js, TypeScript, Python, REST APIs, GraphQL, Next.js, Express.js, Tesseract.js</div>
+                    <div class="skill-category"><strong>Database:</strong> MySQL, PostgreSQL, Supabase, Cloudinary</div>
+                    <div class="skill-category"><strong>Tools:</strong> Git, GitHub, Vercel, Cloudflare, AI, CI/CD</div>
                 </div>
             </section>
 
-            <section>
-                <h2>EDUCATION & LANGUAGES</h2>
-                <div class="inline-text">
-                    <strong>International School of Business</strong> – Business Administration (2026-2029) | <strong>Mediterranean Institute of Technology</strong> – Computer Science, Year 1 (2025–2026)
-                </div>
-                <div class="inline-text" style="margin-top: 2px;">
-                    <strong>Languages:</strong> English (Professional), Arabic (Native), French (Conversational)
-                </div>
+            <section class="section">
+                <h2><i class="fas fa-certificate"></i> Certifications</h2>
+                <div class="cert-group"><b>Google (12)</b> — AI Essentials, Prompting Essentials, Introduction to AI, Use AI as Creative Partner, Speed Up Data Analysis, Design Prompts for Work, Start Writing Prompts, Stay Ahead of AI Curve, Use AI Responsibly, Discover Art of Prompting, Maximize Productivity With AI, Foundations of Business Intelligence</div>
+                <div class="cert-group"><b>IBM (8)</b> — Generative AI for Developers, Generative AI for Educators, Problem Solving with Creative &amp; Critical Thinking, Generative AI: Elevate Career, Modern Education, Prompt Engineering Basics, Introduction &amp; Applications</div>
+                <div class="cert-group"><b>Other</b> — GoMyCode Full Stack JS, Microsoft Intro to Computers/OS/Security, NVIDIA Intro to Networking, Vanderbilt Prompt Engineering, U. Michigan JavaScript Interactivity, Ethical Hacking, Scrimba Learn to Code with AI, Coursera JSON/Python, SEMrush SEO</div>
             </section>
 
-            <section>
-                <h2>CERTIFICATIONS</h2>
-                <div class="inline-text">
-                    <strong>Google (12):</strong> AI Essentials, Prompting Essentials, Introduction to AI, Use AI as Creative Partner, Speed Up Data Analysis, Design Prompts for Work, Start Writing Prompts, Stay Ahead of AI Curve, Use AI Responsibly, Discover Art of Prompting, Maximize Productivity With AI, Foundations of Business Intelligence
+            <section class="section">
+                <h2><i class="fas fa-code-branch"></i> Open Source Contributions</h2>
+                <div class="job">
+                    <div class="job-header"><div class="job-title">Nosey — RSS AI Agent</div><div class="date">2026</div></div>
+                    <div class="job-description">A zero-cost framework that turns your curated RSS feeds into a daily, AI-ranked digest.</div>
                 </div>
-                <div class="inline-text" style="margin-top: 2px;">
-                    <strong>IBM (8):</strong> Generative AI for Developers, Generative AI for Educators, Problem Solving with Creative &amp; Critical Thinking, Generative AI: Elevate Career, Modern Education, Prompt Engineering Basics, Introduction &amp; Applications
+                <div class="job">
+                    <div class="job-header"><div class="job-title">Scape.js — Animated Background Library</div><div class="date">2025</div></div>
+                    <div class="job-description">Authored and published a lightweight (~5KB) JS library for animated, interactive backgrounds.</div>
                 </div>
-                <div class="inline-text" style="margin-top: 2px;">
-                    <strong>Other:</strong> GoMyCode Full Stack JS, Microsoft Intro to Computers/OS/Security, NVIDIA Intro to Networking, Vanderbilt Prompt Engineering, U. Michigan JavaScript Interactivity, Ethical Hacking, Scrimba Learn to Code with AI, Coursera JSON/Python, SEMrush SEO
+                <div class="job">
+                    <div class="job-header"><div class="job-title">Quillow</div><div class="date">2024</div></div>
+                    <div class="job-description">Suggestion and integration of GitHub contribution calendar.</div>
                 </div>
             </section>
         </div>
     </div>
+</div>
+</div>
+<script>
+(function() {
+    'use strict';
+    const themeToggle = document.getElementById('themeToggle');
+    const pdfButton = document.getElementById('pdfButton');
+    const bodyElement = document.body;
 
-    <script>
-        function downloadPDF() {
-            const element = document.getElementById('resume');
-            const opt = {
-                margin: 0,
-                filename: 'Ali_Cheikh_Systems_Administrator.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-            };
-            html2pdf().set(opt).from(element).save();
+    let currentTheme = localStorage.getItem('theme') || 'dark';
+    bodyElement.setAttribute('data-theme', currentTheme);
+
+    function updateThemeButton() {
+        themeToggle.innerHTML = currentTheme === 'dark'
+            ? '<i class="fas fa-sun"></i> Light Mode'
+            : '<i class="fas fa-moon"></i> Dark Mode';
+    }
+    updateThemeButton();
+
+    themeToggle.addEventListener('click', () => {
+        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+        bodyElement.setAttribute('data-theme', currentTheme);
+        localStorage.setItem('theme', currentTheme);
+        updateThemeButton();
+    });
+
+    pdfButton.addEventListener('click', function() {
+        if (typeof html2pdf === 'undefined') {
+            alert('PDF library not loaded. Please refresh the page.');
+            return;
         }
-    </script>
+        window.scrollTo(0, 0);
+        const prevTheme = currentTheme;
+        bodyElement.setAttribute('data-theme', 'light');
+
+        const originalText = this.innerHTML;
+        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+        this.disabled = true;
+
+        setTimeout(() => {
+            const element = document.getElementById('resumeContent');
+            const opt = {
+                margin: [8, 8, 8, 8],
+                filename: 'Ali_Cheikh_Resume.pdf',
+                image: { type: 'jpeg', quality: 1 },
+                html2canvas: { scale: 3, useCORS: true, scrollY: 0, windowHeight: document.documentElement.scrollHeight },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save()
+                .then(() => {
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                    bodyElement.setAttribute('data-theme', prevTheme);
+                })
+                .catch(err => {
+                    console.error('PDF generation failed:', err);
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                    bodyElement.setAttribute('data-theme', prevTheme);
+                    alert('Failed to generate PDF. Please try again.');
+                });
+        }, 100);
+    });
+})();
+</script>
 </body>
 </html>
